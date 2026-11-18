@@ -282,6 +282,91 @@ body.ld .lvdock button i{height:20px}body.ld .lvdock button i img{width:20px;hei
 .lvti{width:22px;height:22px;flex:none;vertical-align:middle}
 .lvtt .lvti{margin-right:6px}
 </style>
+
+<style id="v26-fixes">
+/* ofertas: escudo / bandeira / país-liga */
+.obj.ofr .ot{align-items:center;justify-content:flex-start}
+.obj.ofr .ot>span:last-child:not(.ofb){margin-left:auto}
+.obj.ofr .ofb{flex:none;display:flex;align-items:center;justify-content:center;width:46px;height:46px}
+.obj.ofr .ofb.ofl{font-size:34px;line-height:1}
+.obj.ofr .oft{display:flex;flex-direction:column;min-width:0;gap:1px}
+.obj.ofr .oft b{font-size:16px;line-height:1.1}
+.obj.ofr .oft em{font-style:normal;font-size:12px;color:#c5d9f4;opacity:.9}
+.obj.ofr .bact{margin-top:6px}
+/* mapa deitado: mesmo design nas competições do mundo e no mapa de propostas */
+html body.ld .world-map-panel:has(.geo-side) .world-art-continent{overflow:hidden}
+html body.ld .world-map-panel:has(.geo-side) .world-stage-head{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
+html body.ld .world-map-panel:has(.geo-side) .world-stage-head .cont-btn{position:static!important;margin:4px 0 0!important;order:3;white-space:nowrap}
+html body.ld .world-map-panel:has(.geo-side) .world-stage-foot,html body.ld .world-map-panel:has(.geo-side)>.world-selected{display:none!important}
+html body.ld .geo-side .geo-pl{min-height:0}
+/* barra Escolher: dentro da coluna de países, abaixo da lista (nenhum país fica escondido) */
+html body.ld .geo-side .geo-conf{position:static!important;flex:none;display:none;gap:6px;margin-top:8px;grid-column:auto!important;grid-row:auto!important}
+html body.ld .geo-side .geo-conf.on{display:flex}
+html body.ld .geo-side .geo-conf .btn{min-height:40px;font-size:13px;padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html body.ld .geo-side .geo-conf .btn.ghost{width:42px;flex:none;padding:0}
+/* ficha: estatísticas em 2 colunas, sem cortar */
+html body.ld .fullficha .det.pcard>.pr dl:has(dt:nth-of-type(7)){grid-template-columns:minmax(0,auto) minmax(0,1fr) minmax(0,auto) minmax(0,1fr)!important;column-gap:14px!important;margin-top:4px!important}
+html body.ld .fullficha .det.pcard>.pr dl:has(dt:nth-of-type(7)) dt,html body.ld .fullficha .det.pcard>.pr dl:has(dt:nth-of-type(7)) dd{padding:3px 2px!important}
+html body.ld .fullficha .det.pcard>.pr dl:has(dt:nth-of-type(7)) dt{font-size:11px!important}
+html body.ld .fullficha .det.pcard>.pr dl:has(dt:nth-of-type(7)) dd{font-size:13px!important}
+/* v27: mapa ocupa todo o espaço; países numa coluna só (roleta) */
+html body.ld .world-map-panel:has(.geo-side){grid-template-columns:minmax(96px,128px) minmax(0,1fr) 158px!important;column-gap:8px!important}
+html body.ld .world-map-panel:has(.geo-side) .world-art-continent{width:100%!important;max-width:none!important;height:100%!important;max-height:none!important;aspect-ratio:auto!important;margin:0!important;overflow:hidden!important}
+html body.ld .geo-side .geo-pl{grid-template-columns:1fr!important;grid-auto-rows:44px!important;gap:8px!important;scroll-snap-type:y proximity;overscroll-behavior:contain}
+html body.ld .geo-side .gcb{scroll-snap-align:start;font-size:15px;padding:0 12px}
+html body.ld .geo-side .gcb b{font-size:24px}
+html body.ld .world-art-world .continent-pin{font-size:15px}
+/* v28: sem cortes; lista sempre por cima, mais estreita e à direita */
+html body.ld .world-map-panel:has(.geo-side)>.world-stage-head{grid-column:1;grid-row:1;min-width:0}
+html body.ld .world-map-panel:has(.geo-side)>.world-art-continent{grid-column:2;grid-row:1;min-width:0;position:relative;z-index:0;overflow:hidden!important;contain:paint}
+html body.ld .world-map-panel:has(.geo-side)>.world-art-continent .wa-in{max-width:100%;max-height:100%}
+html body.ld .world-map-panel:has(.geo-side)>.geo-side{grid-column:3;grid-row:1;position:relative;z-index:3;min-width:0}
+html body.ld .world-map-panel:has(.geo-side) .world-stage-head h2{font-size:clamp(20px,3.2vw,30px)!important;line-height:1.05;overflow-wrap:anywhere}
+html body.ld .world-map-panel:has(.geo-side) .world-stage-head p{font-size:12px!important}
+html body.ld .geo-side .gcb{font-size:13px;padding:0 8px;gap:6px}
+html body.ld .geo-side .gcb b{font-size:20px}
+html body.ld .geo-side .geo-pl{grid-auto-rows:40px!important;gap:6px!important}
+html body.ld .geo-side .geo-conf .btn{font-size:12px;padding:4px 6px}
+/* v29 */
+html body.ld .world-map-panel .world-stage-head .cont-btn{display:flex!important;align-items:center;gap:8px;width:100%;max-width:220px;min-height:44px;padding:4px 14px 4px 8px!important;border-radius:999px!important;border:1px solid rgba(190,215,255,.45)!important;background:rgba(120,150,200,.28)!important;color:#fff!important;font:700 18px var(--display)!important;letter-spacing:0!important;text-transform:none!important;box-shadow:0 2px 8px rgba(0,0,0,.25);margin:6px 0 0!important;white-space:nowrap}
+html body.ld .world-map-panel .world-stage-head .cont-btn .rlg{flex:none;display:inline-flex;align-items:center;justify-content:center;background:transparent!important;box-shadow:none!important}
+html body.ld .world-map-panel .world-stage-head .cont-btn .rlg img{width:100%;height:100%;object-fit:contain}
+html body.ld .world-map-panel .world-stage-head .cont-btn:active{background:rgba(160,190,240,.42)!important}
+/* América do Sul: país 2 por linha (há espaço) */
+
+
+
+/* etapa 3: lista de competições com rolagem e visual limpo */
+html body.ld #view .world-stage-root .world-map-panel.world-leagues{display:grid!important;grid-template-columns:minmax(150px,230px) minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr)!important;column-gap:14px!important;height:100%!important;max-height:100%!important;overflow:hidden!important;padding:12px 14px!important}
+html body.ld #view .world-leagues>.world-stage-head{grid-column:1;grid-row:1;align-self:start}
+html body.ld #view .world-leagues>.world-selected{grid-column:2;grid-row:1;height:100%!important;max-height:100%!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch;touch-action:pan-y;overscroll-behavior:contain;padding:0 4px 24px 0!important;scrollbar-width:thin}
+html body.ld #view .world-leagues .world-selected .h2s{margin:6px 0 6px!important;font-size:16px!important;padding:0!important;border:0!important}
+html body.ld #view .world-leagues .world-selected .orows{grid-template-columns:1fr 1fr!important;gap:8px!important}
+html body.ld #view .world-leagues .world-selected .orow{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;min-height:62px!important;height:auto!important;padding:8px 10px!important;border:1px solid rgba(160,190,240,.28)!important;border-radius:14px!important;background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.03))!important}
+html body.ld #view .world-leagues .world-selected .orow b{font-size:15px!important;line-height:1.1!important;white-space:normal}
+html body.ld #view .world-leagues .world-selected .orow span:not(.rlg):not(.tag){font-size:11px!important;opacity:.85}
+html body.ld #view .world-leagues .world-selected .orow .tag{width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:16px}
+/* v30: técnico — informações à esquerda, botões à direita (deitado) */
+html body.ld .gpane>.oh.emphub,html body.ld .oh.emphub{display:grid!important;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;gap:8px 10px!important;height:auto!important;align-items:stretch}
+html body.ld .oh.emphub .coachcard{grid-column:1!important;grid-row:1!important;margin:0!important;padding:10px 12px!important}
+html body.ld .oh.emphub .cstatc{grid-column:1!important;grid-row:2!important;margin:0!important;padding:8px 10px!important;align-self:stretch}
+html body.ld .oh.emphub .ocg{grid-column:2!important;grid-row:1/3!important;display:grid!important;grid-template-columns:1fr 1fr!important;grid-auto-rows:1fr!important;gap:8px!important;align-self:stretch}
+html body.ld .oh.emphub .ocg.og8 .oc{min-height:0!important;justify-content:center;padding:8px 10px!important}
+/* 2 países por linha só no mapa do início (escolha do primeiro clube); nas demais áreas, 1 por linha */
+html body.ld .world-map-panel.gmm-club:has(.geo-side){grid-template-columns:minmax(96px,128px) minmax(0,1fr) 292px!important}
+html body.ld .world-map-panel.gmm-club .geo-pl{grid-template-columns:1fr 1fr!important}
+html body.ld .world-map-panel.gmm-club .gcb span{font-size:12px}
+/* competições: 1 coluna, cartões limpos */
+html body.ld #view .world-leagues .world-selected .orows{grid-template-columns:1fr!important;gap:10px!important}
+html body.ld #view .world-leagues .world-selected .orow{grid-template-columns:56px minmax(0,1fr) 34px!important;gap:14px!important;min-height:72px!important;padding:10px 14px!important;border-radius:16px!important;border:1px solid rgba(170,200,250,.35)!important;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.04))!important;box-shadow:0 3px 10px rgba(0,0,0,.22)}
+html body.ld #view .world-leagues .world-selected .orow .rlg{width:52px!important;height:52px!important;display:flex;align-items:center;justify-content:center;background:transparent!important}
+html body.ld #view .world-leagues .world-selected .orow .rlg img{width:100%;height:100%;object-fit:contain}
+html body.ld #view .world-leagues .world-selected .orow>div{min-width:0}
+html body.ld #view .world-leagues .world-selected .orow b{font-size:19px!important;line-height:1.1!important;white-space:normal;overflow-wrap:normal;word-break:normal;letter-spacing:.2px}
+html body.ld #view .world-leagues .world-selected .orow span:not(.rlg):not(.tag){font-size:12.5px!important;margin-top:3px;opacity:.9}
+html body.ld #view .world-leagues .world-selected .orow .tag{width:34px;height:34px;border-radius:10px;font-size:20px}
+html body.ld #view .world-leagues .world-selected .h2s{font-size:18px!important;margin:4px 0 10px!important}
+</style>
 </head><body>
 <title>Mister Direto V1</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -2027,7 +2112,78 @@ Uruguai:[['Facundo','Maximiliano','Nicolás','Agustín','Federico','Matías','Br
 'Colômbia':[['Juan','Santiago','Andrés','Cristian','Brayan','Jhon','Yerry'],['Rodríguez','Gómez','Mosquera','Cuesta','Ramírez','Quintero','Mina','Palacios','Rivas']],
 Generic:[['Alex','Marko','Ivan','Omar','Karim','Jonas','Erik','Luka','Samir','Yusuf','Ahmed','Moussa'],['Novak','Kovač','Hansen','Berg','Haddad','Diallo','Mensah','Yilmaz','Petrov','Traoré','Nkosi','Sato']]};
 ['Bélgica','Suíça','Áustria'].forEach(function(n){NPOOL[n]=NPOOL['Alemanha']});['México','Chile','Peru','Equador','Paraguai','Venezuela','Bolívia'].forEach(function(n){NPOOL[n]=NPOOL['Argentina']});
-function nameFor(nat){var P=NPOOL[nat]||NPOOL.Generic;return pick(P[0]).charAt(0)+'. '+pick(P[1])}
+function NP(a,b){return [a.split('|'),b.split('|')]}
+NPOOL['Brasil']=NP('João|Pedro|Lucas|Mateus|Gabriel|Rafael|Bruno|Thiago|Caio|Diego|Felipe|Vitor|Igor|Renan|Danilo|Leandro|Wesley|Everton|Murilo|Jonas|Davi|Otávio|Henrique|Vinícius|Matheus|Gustavo|Leonardo|Rodrigo|Fábio|Marcos|Arthur|Guilherme|Yuri|Kaio|Luan|Paulo|Ronaldo|Willian|Gerson|Raphael|Eduardo|Fernando|Lázaro|Samuel','Silva|Souza|Oliveira|Santos|Lima|Costa|Pereira|Ferreira|Rocha|Almeida|Barbosa|Ribeiro|Carvalho|Gomes|Martins|Araújo|Nunes|Moreira|Cardoso|Teixeira|Campos|Duarte|Nascimento|Pinto|Rodrigues|Alves|Mendes|Cavalcanti|Dias|Fernandes|Lopes|Monteiro|Freitas|Batista|Moura|Correia|Vieira|Melo|Machado|Borges|Azevedo|Cunha|Medeiros');
+NPOOL['Argentina']=NP('Matías|Nicolás|Lautaro|Tomás|Franco|Agustín|Facundo|Julián|Santiago|Ezequiel|Gonzalo|Leandro|Lucas|Emiliano|Exequiel|Rodrigo|Alexis|Enzo|Cristian|Marcos|Maximiliano|Germán','González|Rodríguez|Fernández|López|Martínez|Pérez|Romero|Díaz|Sosa|Acosta|Benítez|Molina|Giménez|Ruiz|Álvarez|Gómez|Torres|Silva|Herrera|Medina|Castro|Ortiz|Paredes|Correa|Montiel|Palacios|Otamendi');
+NPOOL['Uruguai']=NP('Facundo|Maximiliano|Nicolás|Agustín|Federico|Matías|Brian|Darwin|Rodrigo|Ronald|Lucas|Santiago|Mathías|Nahitan|Sebastián|Gonzalo|Joaquín','Pereira|Rodríguez|Silva|Núñez|Cabrera|Torres|Viera|Olivera|Giménez|Bentancur|Araújo|Valverde|Pellistri|Acosta|Lemos|Martínez|González|Techera|De León|Cáceres|Fernández|Sosa|Rodrigues');
+NPOOL['Chile']=NP('Alexis|Arturo|Claudio|Mauricio|Gary|Eduardo|Marcelo|Benjamín|Vicente|Diego|Felipe|Esteban|Ignacio|Sebastián|Matías|Nicolás|Francisco|Cristóbal|Gabriel|Jean','Sánchez|Vidal|Medel|Pinilla|Isla|Aránguiz|Vargas|Díaz|Brereton|Núñez|Muñoz|Rojas|Soto|Contreras|Tapia|Figueroa|González|Valdés|Araya|Bravo|Palacios|Fuenzalida|Cortés|Sepúlveda');
+NPOOL['Peru']=NP('Paolo|Christian|André|Renato|Edison|Yoshimar|Luis|Raúl|Gianluca|Miguel|Alex|Carlos|Jefferson|Pedro|Wilder|Sergio|Marcos|Piero|Oliver|Anderson','Guerrero|Cueva|Carrillo|Tapia|Flores|Yotún|Advíncula|Ramos|Zambrano|Quispe|Huamán|Chávez|Gonzáles|Callens|Rodríguez|Torres|Peña|Abram|Polo|Lapadula|Cartagena|Sánchez|Ugarriza|Mendoza');
+NPOOL['Equador']=NP('Enner|Moisés|Piero|Pervis|Gonzalo|Jhon|Kendry|Alan|Joel|Ángelo|Carlos|Félix|Byron|Michael|Willian|Jeremy|Gonzalo|Romario|Cristian|Jordy','Valencia|Caicedo|Hincapié|Estupiñán|Plata|Páez|Ibarra|Preciado|Mercado|Sarmiento|Arboleda|Cifuentes|Palacios|Ortiz|Castillo|Torres|Mina|Franco|Realpe|Ramírez|Cabezas|Angulo|Quintero|Rodríguez');
+NPOOL['Paraguai']=NP('Miguel|Gustavo|Julio|Óscar|Antonio|Ángel|Diego|Júnior|Matías|Mathías|Ramón|Derlis|Fabián|Gabriel|Alejandro|Braian|Robert|Isidro|Adam|Kaku','Almirón|Gómez|Enciso|Romero|Cardozo|Villasanti|Bobadilla|Sanabria|Alderete|Cubas|Benítez|Giménez|Ayala|Duarte|Martínez|Britez|Arce|Balbuena|Espinoza|González|Samudio|Alonso|Ortiz|Piris');
+NPOOL['Venezuela']=NP('Salomón|Yeferson|Jhon|Tomás|Darwin|Josef|Yangel|Eduard|Wilker|Jefferson|Cristian|Fernando|Ronald|Jon|Luis|Telasco|Miguel|Rafael|Bryan|Edson','Rondón|Soteldo|Machís|Martínez|Herrera|Bello|Savarino|Ángel|Córdova|Hernández|Romo|González|Ramírez|Osorio|Ferraresi|Cádiz|Rosales|Aristeguieta|Casseres|Segovia|Navarro|Contreras|Moreno|Peña');
+NPOOL['Bolívia']=NP('Marcelo|Carlos|Miguel|Roberto|Jaime|Luis|Ramiro|Diego|Víctor|Boris|Henry|Fernando|Moisés|Gabriel|Ervin|Rodrigo|Leonel|Jesús|Bruno|Erwin','Moreno|Vaca|Terceros|Saavedra|Justiniano|Arce|Flores|Quiroga|Lampe|Roca|Sagredo|Cuéllar|Villarroel|Chávez|Salvatierra|Montaño|Algarañaz|Bejarano|Medina|Vargas|Rojas|Álvarez|Paz|Zeballos');
+NPOOL['Colômbia']=NP('Juan|Santiago|Andrés|Cristian|Brayan|Jhon|Yerry|Luis|Duván|Radamel|Jefferson|Mateus|Carlos|Wilmar|Jorge|Davinson|Rafael|Miguel|Kevin|Alexis','Rodríguez|Gómez|Mosquera|Cuesta|Ramírez|Quintero|Mina|Palacios|Rivas|Cuadrado|Díaz|Zapata|Borja|Arias|Muñoz|Castaño|Lerma|Córdoba|Sinisterra|Ospina|Lucumí|Barrios|Uribe|Sánchez');
+NPOOL['México']=NP('Hirving|Raúl|Edson|Jesús|Luis|César|Orbelín|Santiago|Diego|Henry|Alexis|Uriel|Johan|Roberto|Carlos|Erick|Julián|Gilberto|Rodolfo|Marcelo','Lozano|Jiménez|Álvarez|Gallardo|Chávez|Montes|Pineda|Giménez|Lainez|Martín|Vega|Antuna|Vásquez|Sánchez|Rodríguez|Guardado|Ochoa|Herrera|Reyes|Araujo|Romo|Quiñones|Huerta|Cabral|Ramírez');
+NPOOL['EUA']=NP('Christian|Weston|Tyler|Giovanni|Brenden|Timothy|Josh|Sergiño|Matt|Ricardo|Jordan|Cole|Gio|Haji|Jesús|Malik|Folarin|Johnny|Kellyn|Antonee','Pulisic|McKennie|Adams|Reyna|Aaronson|Weah|Sargent|Dest|Turner|Pepi|Morris|Zardes|Robinson|Musah|Ream|Richards|Balogun|Cardoso|Acosta|Carter-Vickers|Wright|Johnson|Williams|Miller|Davis|Brown');
+NPOOL['Canadá']=NP('Alphonso|Jonathan|Cyle|Tajon|Stephen|Alistair|Ismaël|Liam|Mark-Anthony|Richie|Junior|Derek|Samuel|Lucas|Jacob|Moïse|Ali|Kamal|Theo|Ryan','Davies|David|Larin|Buchanan|Eustáquio|Johnston|Koné|Millar|Kaye|Laryea|Hoilett|Cornelius|Piette|Cavallini|Osorio|Adekugbe|Bombito|Ahmed|Miller|Brown|Smith|Wilson|Tremblay|Gagnon');
+NPOOL['Inglaterra']=NP('Jack|Harry|Callum|Oliver|Jamie|Tyler|Reece|Ben|Liam|Mason|Declan|Phil|Bukayo|Marcus|Jude|Kyle|Trent|Cole|Aaron|Kieran|Jordan|Ollie|Conor|Ethan|Morgan','Smith|Taylor|Walker|Bennett|Hughes|Carter|Mitchell|Wood|Parker|Cooper|Clarke|Ward|Foden|Rice|Saka|Grealish|Stones|Maguire|Henderson|Rashford|Palmer|Gordon|Watkins|Shaw|Mainoo|Wilson|Evans|Turner|Harris|Bailey|Hall|Young');
+NPOOL['Escócia']=NP('Andy|Scott|Billy|Kieran|John|Callum|Lewis|Ryan|Che|Stuart|Lyndon|Craig|Aaron|Jack|Angus|Greg|Nathan|Liam|Kenny|Stephen','Robertson|McTominay|McGinn|Tierney|Gilmour|Hanley|Adams|McKenna|Armstrong|Christie|Dykes|Gunn|Patterson|Ferguson|Hendry|Shankland|McLean|Campbell|Murray|Wilson|Stewart|MacDonald|Anderson|Reid');
+NPOOL['País de Gales']=NP('Aaron|Gareth|Daniel|Ethan|Harry|Joe|Neco|Brennan|Connor|Kieffer|Ben|Chris|Rubin|Tom|Dylan|Owen|Rhys|Liam|Jordan|Sorba','Ramsey|Bale|James|Ampadu|Wilson|Allen|Williams|Johnson|Roberts|Moore|Davies|Colwill|Mepham|Brooks|Morrell|Thomas|Jones|Evans|Hughes|Lewis|Edwards|Price|Griffiths|Morgan');
+NPOOL['Irlanda']=NP('Seamus|Conor|Shane|Liam|Aaron|Evan|Nathan|Josh|Callum|Troy|Matt|Dara|Cian|Seán|Jason|Adam|Finn|Rory|Darragh|Michael','Murphy|Kelly|Byrne|Doherty|Duffy|Ryan|Brady|Collins|McCarthy|O\'Brien|Walsh|Coleman|Egan|Ferguson|Browne|Obafemi|Cullen|Doyle|O\'Shea|Hendrick|Smallbone|Parrott|Molumby|Kenny');
+NPOOL['Espanha']=NP('Álvaro|Pablo|Marc|Dani|Iker|Adrián|Hugo|Unai|Sergio|Jorge|Lamine|Pedri|Rodri|Álex|Fabián|Mikel|Nico|Gavi|Ferran|Aitor|Raúl|Borja|Víctor|Óscar','García|Fernández|López|Martín|Sánchez|Ruiz|Moreno|Navarro|Iglesias|Vázquez|Ortega|Torres|Olmo|Merino|Williams|Oyarzabal|Morata|Carvajal|Laporte|Cucurella|Zubimendi|Ramos|Gil|Herrero|Díaz|Molina|Alonso|Romero|Domínguez|Serrano|Blanco|Vidal');
+NPOOL['Portugal']=NP('Rúben|Tiago|Diogo|João|Gonçalo|Rafa|Nuno|André|Pedro|Bernardo|Bruno|Vitinha|Nélson|Francisco|Rafael|Ricardo|Miguel|Fábio|Renato|Rui|Daniel|Hugo','Silva|Santos|Ferreira|Pereira|Costa|Carvalho|Martins|Sousa|Rodrigues|Gomes|Fernandes|Leão|Jota|Mendes|Dias|Cancelo|Neves|Ramos|Moreira|Teixeira|Lopes|Cardoso|Almeida|Oliveira|Pinto|Correia|Monteiro|Ribeiro');
+NPOOL['França']=NP('Théo|Mathis|Lucas|Hugo|Enzo|Nathan|Maxime|Yanis|Antoine|Rayan|Kylian|Aurélien|Ousmane|Eduardo|Randal|Jules|Warren|Youssouf|Adrien|Michael|Olivier|Corentin|Bradley|Marcus|Dayot','Martin|Bernard|Dubois|Laurent|Moreau|Girard|Fontaine|Mercier|Lambert|Rousseau|Diallo|Traoré|Mbappé|Griezmann|Tchouaméni|Dembélé|Camavinga|Koundé|Saliba|Upamecano|Rabiot|Thuram|Barcola|Konaté|Fofana|Lacazette|Giroud|Kanté|Pavard|Hernandez|Digne|Doué|Petit|Leroy|Roux|David');
+NPOOL['Alemanha']=NP('Jonas|Lukas|Felix|Leon|Finn|Noah|Niklas|Tim|Paul|Moritz|Florian|Kai|Jamal|Leroy|Joshua|Antonio|Serge|Robert|Maximilian|Julian|Deniz|Benjamin|Jan|Nico|David','Müller|Schmidt|Becker|Hoffmann|Wagner|Koch|Richter|Klein|Wolf|Neumann|Schulz|Braun|Wirtz|Musiala|Havertz|Sané|Kimmich|Rüdiger|Gnabry|Füllkrug|Gündogan|Tah|Andrich|Raum|Mittelstädt|Undav|Fischer|Hofmann|Weiß|Keller|Zimmermann|Brandt|Meyer|Lang|Fuchs|Schäfer');
+NPOOL['Itália']=NP('Matteo|Lorenzo|Andrea|Federico|Davide|Nicolò|Samuele|Marco|Luca|Simone|Gianluigi|Alessandro|Giacomo|Sandro|Riccardo|Gianluca|Francesco|Mattia|Ciro|Leonardo|Manuel|Giovanni|Domenico|Stefano','Rossi|Ferrari|Esposito|Bianchi|Romano|Colombo|Ricci|Marino|Greco|Conti|De Luca|Costa|Barella|Chiesa|Bastoni|Donnarumma|Locatelli|Retegui|Scamacca|Pellegrini|Dimarco|Calafiori|Cambiaso|Frattesi|Zaccagni|Tonali|Lazzari|Politano|Gatti|Mancini|Gallo|Moretti|Villa|Fontana|Caruso');
+NPOOL['Holanda']=NP('Daan|Sem|Jesse|Luuk|Mees|Bram|Lars|Thijs|Virgil|Frenkie|Memphis|Cody|Matthijs|Donyell|Xavi|Tijjani|Denzel|Nathan|Jurriën|Teun|Joey|Ryan|Wout|Steven','de Jong|van Dijk|Bakker|Visser|Smit|Meijer|de Vries|Mulder|Bos|Vos|Gakpo|de Ligt|Dumfries|Reijnders|Simons|Malen|Aké|Frimpong|Koopmeiners|Blind|Veerman|van de Ven|Timber|Weghorst|Maatsen|Brobbey|de Roon|Jansen|Dekker|Peters|Hendriks|Kuipers');
+NPOOL['Bélgica']=NP('Kevin|Romelu|Jérémy|Youri|Leandro|Charles|Yannick|Thibaut|Amadou|Lois|Timothy|Jan|Zeno|Arthur|Jorne|Koni|Hans|Orel|Wout|Dodi','De Bruyne|Lukaku|Doku|Tielemans|Trossard|De Ketelaere|Onana|Courtois|Openda|Castagne|Meunier|Faes|Vertonghen|Mechele|Vanaken|Bakayoko|Saelemaekers|Debast|Theate|Dendoncker|Praet|Witsel|Peeters|Janssens|Maes|Jacobs|Willems|Claes');
+NPOOL['Suíça']=NP('Granit|Manuel|Breel|Ricardo|Remo|Fabian|Denis|Noah|Dan|Silvan|Xherdan|Ruben|Michel|Yvon|Cédric|Nico|Zeki|Ulisses|Kevin|Eray','Xhaka|Akanji|Embolo|Rodríguez|Freuler|Schär|Zakaria|Ndoye|Vargas|Okafor|Widmer|Elvedi|Sommer|Aebischer|Amdouni|Steffen|Fernandes|Müller|Meier|Keller|Frei|Schmid|Weber|Huber|Brunner|Baumann');
+NPOOL['Áustria']=NP('David|Marcel|Konrad|Christoph|Marko|Florian|Philipp|Stefan|Patrick|Maximilian|Kevin|Nicolas|Alexander|Michael|Xaver|Gernot|Romano|Flavius|Leopold|Matthias','Alaba|Sabitzer|Laimer|Baumgartner|Arnautović|Grillitsch|Lienhart|Posch|Seiwald|Gregoritsch|Wimmer|Trauner|Schlager|Wöber|Mwene|Danso|Bauer|Huber|Gruber|Wagner|Pichler|Steiner|Mayer|Hofer|Leitner|Berger');
+NPOOL['Dinamarca']=NP('Christian|Kasper|Pierre-Emile|Joakim|Rasmus|Mikkel|Andreas|Jonas|Yussuf|Victor|Mathias|Simon|Morten|Alexander|Thomas|Martin|Jesper|Anders|Daniel|Oliver','Eriksen|Schmeichel|Højbjerg|Hjulmand|Højlund|Damsgaard|Christensen|Skov Olsen|Wind|Maehle|Delaney|Poulsen|Bah|Kristensen|Andersen|Nielsen|Jensen|Hansen|Pedersen|Larsen|Sørensen|Rasmussen|Møller|Jørgensen|Olsen|Madsen');
+NPOOL['Suécia']=NP('Alexander|Dejan|Viktor|Emil|Victor|Jesper|Anthony|Hugo|Robin|Ludwig|Mattias|Kristoffer|Filip|Oscar|Gustav|Carl|Samuel|Mikael|Johan|Erik','Isak|Kulusevski|Gyökeres|Forsberg|Lindelöf|Olsen|Elanga|Karlsson|Svensson|Johansson|Andersson|Lindgren|Larsson|Nilsson|Eriksson|Bergström|Ekdal|Claesson|Augustinsson|Quaison|Holm|Lindberg|Berg|Sandberg|Lundqvist|Persson');
+NPOOL['Noruega']=NP('Erling|Martin|Alexander|Ørjan|Leo|Sander|Kristian|Mohamed|Oscar|Julian|Fredrik|Jens|Marcus|Andreas|Morten|Mats|Stefan|Thelo|Patrick|Tobias','Haaland|Ødegaard|Sørloth|Nyland|Østigård|Berge|Thorsby|Strand Larsen|Bobb|Ryerson|Ajer|Nusa|Aursnes|Pedersen|Hansen|Johansen|Olsen|Larsen|Andersen|Berg|Solbakken|Lund|Haugen|Dahl|Eriksen|Karlsen');
+NPOOL['Finlândia']=NP('Teemu|Lukas|Joel|Glen|Robin|Niklas|Oliver|Tim|Daniel|Onni|Jere|Fredrik|Rasmus|Ilmari|Antti|Jesse|Pyry|Santeri|Eero|Mikael','Pukki|Hradecky|Kamara|Lod|Raitala|Schüller|Uronen|Valakari|Soisalo|Kairinen|Ivanov|Virtanen|Korhonen|Nieminen|Mäkinen|Laine|Heikkinen|Koskinen|Järvinen|Lehtonen|Hämäläinen');
+NPOOL['Polônia']=NP('Robert|Piotr|Wojciech|Jakub|Arkadiusz|Kamil|Sebastian|Nicola|Przemysław|Matty|Bartosz|Karol|Krzysztof|Michał|Paweł|Adam|Jan|Łukasz|Tomasz|Marcin','Lewandowski|Zieliński|Szczęsny|Kiwior|Milik|Bednarek|Szymański|Zalewski|Moder|Frankowski|Cash|Piątek|Świderski|Nowak|Kowalski|Wiśniewski|Wójcik|Kamiński|Dąbrowski|Kozłowski|Jankowski|Mazur|Krawczyk|Piotrowski');
+NPOOL['Croácia']=NP('Luka|Ivan|Mateo|Marcelo|Josip|Andrej|Lovro|Mario|Dominik|Ante|Nikola|Borna|Marko|Joško|Duje|Martin|Domagoj|Filip|Tin|Petar','Modrić|Perišić|Kovačić|Brozović|Gvardiol|Kramarić|Livaja|Majer|Sosa|Budimir|Vlašić|Stanišić|Pašalić|Juranović|Horvat|Kovač|Babić|Marić|Jurić|Novak|Petković|Vuković|Tomić|Knežević|Matić|Božić');
+NPOOL['Sérvia']=NP('Dušan|Aleksandar|Sergej|Nemanja|Filip|Luka|Strahinja|Andrija|Lazar|Nikola|Miloš|Marko|Dragan|Vanja|Uroš|Stefan|Ivan|Darko|Mihailo|Petar','Vlahović|Mitrović|Milinković-Savić|Tadić|Kostić|Jović|Pavlović|Živković|Ilić|Lukić|Veljković|Gudelj|Radonjić|Petrović|Jovanović|Nikolić|Đorđević|Stojanović|Marković|Popović|Todorović|Simić|Savić|Milošević');
+NPOOL['Turquia']=NP('Arda|Hakan|Kerem|Cenk|Burak|Ferdi|Orkun|Zeki|Mert|Barış|Kenan|Salih|Yusuf|Emre|Ozan|Can|Caner|Abdülkadir|Semih|Merih','Güler|Çalhanoğlu|Aktürkoğlu|Tosun|Yılmaz|Kadıoğlu|Kökçü|Çelik|Müldür|Demiral|Akaydın|Yazıcı|Yıldız|Özcan|Kılıçsoy|Yıldırım|Şahin|Kaya|Demir|Çelebi|Aydın|Öztürk|Arslan|Doğan|Koç|Kurt');
+NPOOL['Grécia']=NP('Konstantinos|Giorgos|Dimitris|Panagiotis|Vangelis|Anastasios|Tasos|Andreas|Christos|Giannis|Nikos|Manolis|Sokratis|Kostas|Petros|Stefanos|Lazaros|Thanasis|Alexandros|Fotis','Mavropanos|Bakasetas|Masouras|Pavlidis|Tzolis|Tsimikas|Ioannidis|Giakoumakis|Koulierakis|Hatzidiakos|Bouchalakis|Siopis|Zafeiris|Papadopoulos|Georgiou|Nikolaidis|Vlachos|Dimitriou|Papadakis|Karagiannis|Antoniou|Mitrou|Pantelidis|Lykogiannis');
+NPOOL['Rússia']=NP('Artem|Aleksandr|Fyodor|Daniil|Andrei|Denis|Maksim|Roman|Ivan|Anton|Nikita|Kirill|Dmitri|Sergei|Mikhail|Vladislav|Igor|Pavel|Yuri|Oleg','Dzyuba|Golovin|Smolov|Zobnin|Miranchuk|Cheryshev|Ionov|Kuzyaev|Barinov|Zhirkov|Ivanov|Smirnov|Kuznetsov|Popov|Sokolov|Lebedev|Kozlov|Novikov|Morozov|Petrov|Volkov|Fedorov|Orlov|Sidorov');
+NPOOL['Ucrânia']=NP('Andriy|Oleksandr|Mykhailo|Viktor|Artem|Heorhiy|Vitaliy|Ruslan|Illya|Taras|Serhiy|Anatoliy|Volodymyr|Yaroslav|Roman|Denys|Bohdan|Yevhen|Oleh|Dmytro','Yarmolenko|Zinchenko|Mudryk|Dovbyk|Tsygankov|Sydorchuk|Malinovskyi|Mykolenko|Zabarnyi|Trubin|Shevchenko|Kovalenko|Bondarenko|Melnyk|Boiko|Tkachenko|Kravchenko|Shevchuk|Moroz|Lysenko|Savchenko|Polishchuk|Marchenko|Hrytsenko');
+NPOOL['Hungria']=NP('Dominik|Willi|Roland|Milos|Attila|Callum|Zsolt|Péter|Ádám|Barnabás|Bendegúz|László|Loïc|Martin|Dániel|Krisztián|Zoltán|András|Gergő|Máté','Szoboszlai|Orbán|Sallai|Kerkez|Schäfer|Gulácsi|Varga|Lang|Nagy|Kovács|Tóth|Szabó|Horváth|Kiss|Molnár|Németh|Fekete|Balogh|Papp|Takács|Juhász|Lukács|Oláh|Szalai');
+NPOOL['Eslováquia']=NP('Milan|Stanislav|Ondrej|Juraj|Lukáš|Róbert|Dávid|Peter|Tomáš|Martin|Marek|Ivan|Adam|Samuel|Patrik|Denis|Matúš|Jakub|Michal|Filip','Škriniar|Lobotka|Duda|Kucka|Hancko|Mak|Haraslín|Strelec|Bero|Rodák|Kováč|Horváth|Varga|Tóth|Baláž|Vavro|Valjent|Hrošovský|Šatka|Novák|Kučera|Molnár|Ďuriš|Polievka');
+NPOOL['Geórgia']=NP('Khvicha|Giorgi|Zuriko|Otar|Budu|Georges|Saba|Nika|Levan|Guram|Irakli|Luka|Davit|Mikheil|Jaba|Anzor|Nodar|Tornike|Lasha|Vakhtang','Kvaratskhelia|Mamardashvili|Davitashvili|Kiteishvili|Zivzivadze|Mikautadze|Lobzhanidze|Kochorashvili|Gocholeishvili|Kashia|Kakabadze|Shengelia|Chakvetadze|Lochoshvili|Beridze|Maisuradze|Khutsishvili|Gvelesiani|Tsitaishvili|Okriashvili|Kankava|Abashidze');
+NPOOL['Armênia']=NP('Henrikh|Lucas|Tigran|Eduard|Karen|Artak|Varazdat|Gor|Hovhannes|Aras|Sargis|Vahan|Narek|Arsen|Edgar|Artur|Norayr|Ruben|Alexander|Zhirayr','Mkhitaryan|Zolotić|Barseghyan|Spertsyan|Hovhannisyan|Harutyunyan|Dashyan|Adamyan|Grigoryan|Manvelyan|Petrosyan|Sarkisyan|Avagyan|Hakobyan|Bichakhchyan|Ghazaryan|Kocharyan|Sargsyan|Karapetyan|Vardanyan');
+NPOOL['Eslovênia']=NP('Jan|Benjamin|Žan|Adam|Timi|Petar|Sandi|Andraž|Miha|Jaka|Domen|Erik|Luka|Aljaž|Tamar|Nejc|Matic|Jure|Nik|Rok','Oblak|Šeško|Vipotnik|Gnezda Čerin|Elšnik|Stojanović|Lovrić|Bijol|Karničnik|Blažič|Verbič|Mlakar|Horvat|Novak|Kovačič|Krajnc|Zupančič|Kos|Vidmar|Potočnik|Kranjc|Golob|Korošec|Božič');
+NPOOL['Kosovo']=NP('Vedat|Milot|Edon|Amir|Florent|Elvis|Arber|Fisnik|Besart|Lirim|Valon|Ermal|Herolind|Bersant|Donis|Mergim|Ardian|Leart|Diellza|Albion','Muriqi|Rashica|Zhegrova|Rrahmani|Hadergjonaj|Aliti|Halimi|Berisha|Celina|Çelik|Asllani|Kryeziu|Hoxha|Krasniqi|Gashi|Shala|Dreshaj|Ahmeti|Bytyqi|Morina|Vojvoda|Kastrati|Avdullahu|Ismajli');
+NPOOL['Uzbequistão']=NP('Eldor|Abbosbek|Jaloliddin|Otabek|Azizbek|Odiljon|Khojimat|Jasur|Dostonbek|Sherzod|Umarali|Oston|Rustam|Bobur|Abdukodir|Ibrokhim|Sardor|Akmal|Islom|Zafar','Shomurodov|Fayzullaev|Masharipov|Urunov|Turgunboev|Hamrobekov|Erkinov|Yakhshiboev|Sergeev|Nasrullaev|Kholmatov|Alijonov|Abdullaev|Karimov|Rakhimov|Ismoilov|Yusupov|Tursunov|Khusanov|Norchaev');
+NPOOL['Japão']=NP('Takefusa|Kaoru|Wataru|Daichi|Ritsu|Takehiro|Yuki|Ayase|Kyogo|Hiroki|Junya|Ko|Shogo|Kenta|Takumi|Reo|Sho|Keito|Hayao|Koki','Kubo|Mitoma|Endo|Kamada|Doan|Tomiyasu|Sakamoto|Ueda|Furuhashi|Itakura|Ito|Taniguchi|Maeda|Tanaka|Suzuki|Sato|Watanabe|Yamamoto|Nakamura|Kobayashi|Kato|Yoshida|Hayashi|Shimizu|Morita|Okazaki');
+NPOOL['Coreia do Sul']=NP('Heung-min|Min-jae|Kang-in|Hee-chan|Jae-sung|Woo-yeong|Gue-sung|Seung-ho|Hyeon-woo|Young-woo|Jin-su|Seung-gyu|Tae-hwan|Joo-ho|Ji-sung|Dong-gyeong|Hyun-seok|Yong-woo','Son|Kim|Lee|Park|Choi|Jung|Kang|Cho|Yoon|Jang|Lim|Han|Oh|Seo|Shin|Kwon|Hwang|Ahn|Song|Hong');
+NPOOL['Austrália']=NP('Mathew|Harry|Aaron|Jackson|Ajdin|Martin|Craig|Mitchell|Jamie|Riley|Nestory|Connor|Cameron|Lewis|Jordan|Bailey|Kusini|Awer|Alessandro|Daniel','Ryan|Souttar|Mooy|Irvine|Hrustic|Boyle|Goodwin|Duke|Maclaren|Metcalfe|Leckie|Atkinson|Circati|Roberts|Burgess|Wilson|Smith|Jones|Brown|Taylor|Miller|Walker|Thompson|Harris');
+NPOOL['Nova Zelândia']=NP('Chris|Liberato|Joe|Matt|Marco|Elijah|Sarpreet|Ben|Callan|Tommy|Michael|Alex|Kosta|Finn|Bill|Clayton|Max|Ryan|Nando|Oli','Wood|Cacace|Bell|Garbett|Stamenić|Just|Singh|Waine|Elliott|Smith|Boxall|Payne|Barbarouses|Surman|Old|McCowatt|Rufer|Williams|Brown|Taylor|Thomas|Greive|Pijnaker|Tuiloma');
+NPOOL['Marrocos']=NP('Achraf|Hakim|Youssef|Sofyan|Noussair|Azzedine|Brahim|Abde|Ilias|Bilal|Amine|Munir|Yahia|Nayef|Selim|Zakaria|Ayoub|Walid|Anass|Mehdi','Hakimi|Ziyech|En-Nesyri|Amrabat|Mazraoui|Ounahi|Díaz|Ezzalzouli|Akhomach|El Khannouss|Adli|Saïss|Aguerd|Bounou|Attiat-Allah|Boufal|Harit|Bennani|El Idrissi|Tahiri|Alaoui|Benkhaldoun|Chair|Amallah');
+NPOOL['Senegal']=NP('Sadio|Idrissa|Kalidou|Ismaïla|Édouard|Nicolas|Pape|Boulaye|Krépin|Abdou|Lamine|Moussa|Cheikhou|Habib|Mamadou|Iliman|Formose|Youssouf|Bamba|Ibrahima','Mané|Gueye|Koulibaly|Sarr|Mendy|Jackson|Diatta|Dia|Diallo|Diouf|Camara|Ndiaye|Fall|Seck|Sow|Ba|Niang|Sabaly|Cissé|Faye|Thiam|Ndoye|Gomis|Samb');
+NPOOL['Nigéria']=NP('Victor|Ademola|Samuel|Wilfred|Alex|Taiwo|Kelechi|Calvin|Ola|Moses|Chidozie|Terem|Frank|Raphael|Akinkunmi|Bright|Fisayo|Paul|Tolu|Zaidu','Osimhen|Lookman|Chukwueze|Ndidi|Iwobi|Awoniyi|Iheanacho|Bassey|Aina|Simon|Boniface|Onyeka|Dessers|Ekong|Okafor|Adeyemi|Eze|Nwankwo|Ogbu|Musa|Bello|Adebayo|Omeruo|Sanusi');
+NPOOL['Gana']=NP('Thomas|Mohammed|Jordan|André|Iñaki|Antoine|Tariq|Daniel|Alexander|Abdul|Kamaldeen|Osman|Joseph|Baba|Ernest|Gideon|Salis|Ibrahim|Kasim|Fatawu','Partey|Kudus|Ayew|Williams|Semenyo|Lamptey|Amartey|Djiku|Salisu|Rahman|Sulemana|Bukari|Issahaku|Mensah|Owusu|Boateng|Asamoah|Appiah|Addo|Quansah|Opoku|Nuamah|Fuseini|Yirenkyi');
+NPOOL['Egito']=NP('Mohamed|Mostafa|Omar|Ahmed|Mahmoud|Ramadan|Emam|Ibrahim|Hamdy|Karim|Yasser|Amr|Ali|Hossam|Tarek|Mahmoud|Marwan|Zizo|Akram|Khaled','Salah|Marmoush|Elneny|Hegazi|Trezeguet|Sobhi|Ashour|Hamdi|Fathy|Abdelmonem|Hamed|Ghazal|Abdelhamid|Hussein|Hassan|Mahmoud|Ibrahim|Saleh|Youssef|Kamel|Ismail|Shehata|Gaber|Emad');
+NPOOL['Argélia']=NP('Riyad|Ismaël|Youcef|Ramy|Aïssa|Said|Houssem|Baghdad|Mohamed|Nabil|Amine|Hicham|Anis|Farès|Ilan|Badredine|Adam|Zinedine|Ramiz|Yacine','Mahrez|Bennacer|Belaïli|Bensebaini|Mandi|Benrahma|Aouar|Bounedjah|Slimani|Atal|Chaïbi|Boudaoui|Tahrat|Zorgane|Gouiri|Amoura|Bouazza|Zerrouki|Brahimi|Messali|Hadjam|Ghezzal|Benzia|Mebarki');
+NPOOL['Costa do Marfim']=NP('Franck|Sébastien|Wilfried|Nicolas|Simon|Seko|Max-Alain|Odilon|Evan|Willy|Serge|Oumar|Ibrahim|Jean|Christian|Hamed|Amad|Ousmane|Yan|Emmanuel','Kessié|Haller|Zaha|Pépé|Adingra|Fofana|Gradel|Kossounou|Ndicka|Boly|Sangaré|Diakité|Konan|Singo|Bailly|Doumbia|Traoré|Koné|Diomandé|Gbamin|Bamba|Kouassi|Yao|Sangare');
+NPOOL['Camarões']=NP('Vincent|André|Eric|Bryan|Karl|Nicolas|Christopher|Collins|Jean-Charles|Martin|Georges-Kévin|Olivier|Pierre|Carlos|Frank|Samuel|Moumi|Gael|Jackson|Enzo','Aboubakar|Onana|Choupo-Moting|Mbeumo|Toko Ekambi|Nkoulou|Wooh|Fai|Castelletto|Hongla|Anguissa|Ngamaleu|Kunde|Ntcham|Mbekeli|Bassogog|Tchamadeu|Etta Eyong|Ebongue|Ondoa|Tchouameni|Nkoudou|Mbarga|Biyik');
+NPOOL['Mali']=NP('Yves|Amadou|Moussa|Kalifa|Diadie|Adama|Lassana|Hamari|Cheick|Sékou|Boubacar|Mamadou|Ibrahima|Issa|Falaye|Nene|El Bilal|Aliou|Mohamed|Abdoulaye','Bissouma|Haidara|Doumbia|Coulibaly|Samassékou|Traoré|Sissoko|Konaté|Diarra|Dembélé|Keita|Camara|Sangaré|Diakité|Koné|Touré|Cissé|Niakaté|Diaby|Kouyaté|Maïga|Sacko|Traore|Doucouré');
+NPOOL['Guiné']=NP('Naby|Serhou|Mohamed|Amadou|Ilaix|Aguibou|Abdoulaye|Sory|Ibrahima|Morgan|Fodé|Ousmane|Sékou|Issiaga|Mamadou|Seydouba|Mady|Facinet|Aly|Kamil','Keïta|Guirassy|Bayo|Camara|Moriba|Diawara|Touré|Sylla|Conté|Soumah|Diallo|Cissé|Bangoura|Sidibé|Barry|Kamano|Traoré|Sow|Condé|Konaté|Bah|Cissoko');
+NPOOL['Angola']=NP('Mateus|Bruno|Paulo|Eddie|Jonathan|Mário|Dálcio|Fredy|Zito|Jordão|Hélder|Nelson|Gelson|Miguel|Mabululu|Show|Clinton|Núrio|Pedro|Wilson','Dala|Gomes|Mendes|Bastos|Diogo|Quissanga|Neto|Kialunda|Carneiro|Fortunato|Silva|Santos|Costa|Fernandes|Pinto|Domingos|Luvumbo|Capita|Manuel|António|Mabululu|Mabiala');
+NPOOL['Suriname']=NP('Ridgeciano|Sheraldo|Tjaronn|Gleofilo|Nigel|Dion|Kelvin|Jeremy|Ryan|Shaquille|Ricardo|Glenn|Roland|Mitchell|Sean|Dennis|Jurgen|Ivanildo|Marvin|Clifton','Haps|Becker|Chery|Vlijter|Hasselbaink|Kroon|Kuyk|Mac-Intosch|Balker|Mooi|Pinas|Wooter|Jorgensen|Dijks|Bacuna|Bonevacia|Amatkarijo|Kastelen|Tahapary|Sandvliet|Lieveld');
+NPOOL['Guiana Francesa']=NP('Wesley|Jean|Kévin|Dylan|Loïc|Yoann|Anthony|Mickaël|Kenny|Steeve|Cédric|Jordan|Rodrigue|Dimitri|Sébastien|Ludovic|Romain|Florian|Maxime|Quentin','Joseph|Benoit|Florentin|Louis|Dolor|Marie|Sainte|Joachim|Calixte|Rémy|Alexandre|Léon|Justin|Laurent|Eloi|Constant|Cadet|Georges|Mathurin|Hippolyte');
+NPOOL['Guiana']=NP('Neil|Samuel|Sam|Liam|Trayon|Anthony|Terence|Sheldon|Emery|Kadell|Keanu|Quillan|Jamal|Kevin|Dwight|Matthew|Elliot|Ryan|Daniel|Nicholas','Danns|Cox|Bruce|Samuels|Garcia|Pearson|Jones|Walters|Williams|Persaud|Singh|Cummings|Edwards|Gordon|Wilson|Adams|Harris|Robinson|Abrams|Clarke');
+NPOOL['Costa Rica']=NP('Keylor|Joel|Bryan|Celso|Francisco|Yeltsin|Kendall|Manfred|Jewison|Anthony|Randall|Orlando|Jimmy|Alonso|Brandon|Carlos|Gerson|Aaron|Luis|Roan','Navas|Campbell|Ruiz|Borges|Calvo|Tejeda|Waston|Ugalde|Bennette|Contreras|Leal|Galo|Marín|Zamora|Torres|Vargas|Fernández|Quesada|Aguilera|Chacón|Brenes|Salas|Mora|Jiménez');
+NPOOL['Jamaica']=NP('Michail|Leon|Bobby|Shamar|Ethan|Demarai|Kemar|Mason|Daniel|Amari|Joel|Jon|Javon|Dexter|Renaldo|Tyreek|Cory|Damion|Junior|Greg','Antonio|Bailey|Reid|Nicholson|Pinnock|Gray|Lowe|Holding|Johnson|Palmer|Latibeaudiere|Morrison|Cover|Williams|Samuels|Brown|Taylor|Campbell|Thomas|Anderson|Clarke|Grant');
+NPOOL['EuroMix']=NP('Marko|Ivan|Luka|Nikola|Stefan|Andrei|Mihai|Petar|Jan|Tomáš|Erik|Anton|Matej|Dario|Viktor|Adrian|Dominik|Filip|Martin|Lukas','Novak|Horvat|Kovač|Popescu|Ionescu|Nowak|Svoboda|Dvořák|Petrov|Ivanov|Marinov|Stoica|Jovanović|Babić|Kowalski|Varga|Horváth|Dumitru|Georgiev|Kuzmanović');
+NPOOL['AfroMix']=NP('Moussa|Ibrahima|Mamadou|Kofi|Kwame|Emmanuel|Samuel|Yaya|Sekou|Abdoulaye|Ousmane|Cheikh|Issa|Seydou|Joseph|Daniel|Patrick|Chidi|Tendai|Themba','Diallo|Traoré|Keita|Konaté|Camara|Diop|Sow|Mensah|Owusu|Boateng|Okafor|Adeyemi|Nkosi|Banda|Mwale|Ndlovu|Moyo|Dube|Sithole|Phiri');
+NPOOL['AsiaMix']=NP('Ali|Reza|Mehdi|Hussein|Omar|Khalid|Saeed|Yusuf|Ahmad|Faisal|Abdullah|Hamza|Sami|Rashid|Mohammad|Karim|Nasser|Salem|Majid|Tariq','Al-Dawsari|Al-Hamdan|Rahimi|Taremi|Azmoun|Jahanbakhsh|Mohammadi|Karimi|Hosseini|Ahmadi|Haddad|Mansour|Khalil|Aziz|Al-Ghamdi|Al-Shehri|Hassan|Nasser|Rashidi|Sharifi');
+NPOOL['CaribMix']=NP('Carlos|José|Luis|Jorge|Kevin|Josué|Marvin|Darren|Andre|Shaq|Kemar|Omar|Dwayne|Randy|Juan|Miguel|Ricardo|Elvis|Rafael|Wilfredo','Martínez|Hernández|Ramírez|Flores|Romero|Campbell|Williams|Thomas|Brown|Johnson|Joseph|Baptiste|Charles|Edwards|García|Rodríguez|Pérez|Morales|Reyes|Santos');
+['Bélgica','Suíça','Áustria'].forEach(function(n){});
+function nameFor(nat){var P=NPOOL[nat];if(!P){var rg=(typeof YCONT!=='undefined'&&YCONT[nat])||'';P=NPOOL[({EUR:'EuroMix',AFR:'AfroMix',ASI:'AsiaMix',NAM:'CaribMix',SAM:'Argentina',OCE:'Nova Zelândia'})[rg]]||NPOOL.Generic}var f=pick(P[0]),l=pick(P[1]);return f+' '+l}
+
 var LGN={BRA:['Brasil',.8],BRB:['Brasil',.9],ARG:['Argentina',.82],MLS:['EUA',.42],MEX:['México',.8],CAN:['Canadá',.7],URU:['Uruguai',.8],CHL:['Chile',.8],ECU:['Equador',.8],CLM:['Colômbia',.82],PRT:['Portugal',.62],BLV:['Bolívia',.85],PRY:['Paraguai',.82],VNZ:['Venezuela',.8],PRU:['Peru',.82],ENG:['Inglaterra',.5],ESP:['Espanha',.5],GER:['Alemanha',.48],ITA:['Itália',.52],FRA:['França',.5]};
 var FORPOOL={BRA:['Argentina','Uruguai','Colômbia','Paraguai','Chile','Equador','Portugal','Venezuela','Bolívia','Peru'],EUR:['Brasil','Argentina','França','Portugal','Holanda','Bélgica','Espanha','Uruguai','Colômbia','Dinamarca','Suécia','Noruega','Senegal','Marrocos','Nigéria','Croácia','Sérvia','Polônia','Turquia','Gana','Japão','Coreia do Sul'],MEX:['Argentina','Colômbia','Chile','Uruguai','Brasil','Paraguai','Equador','Venezuela','EUA','Espanha'],CAN:['Brasil','Argentina','Colômbia','EUA','Inglaterra','França','Jamaica','Costa Rica','Gana','Nigéria'],MLS:['Argentina','Brasil','Colômbia','México','Canadá','Costa Rica','Venezuela','Equador','Inglaterra','Alemanha']};
 var SAML=['BRA','BRB','ARG','URU','CHL','ECU','CLM','PRY','BLV','VNZ','PRU'];
@@ -5130,6 +5286,7 @@ function setupTeam(id,noise){
   var tc=u?{ins:S.ins||{},line:S.line||'mid',tmp:S.tmp||'norm'}:aiTac(id);
   return {id:id,form:form,ment:ment,lu:lu,ln:ln,red:1,on:flat(lu),yc:{},used:used,ins:Object.assign({},tc.ins),line:tc.line,tmp:tc.tmp,fx:tacFx(tc.ins,tc.line,tc.tmp)};
 }
+function ovrBg(o){var c=o>=85?'#ffd34d':o>=80?'#35e08b':o>=75?'#6ca1e6':o>=70?'#b5c9e6':'#ff9a6a';return 'linear-gradient(135deg,'+c+','+c+');color:#08101c;text-shadow:none'}
 function teamOvr(){
   var f=flat(lineup(S.clubs[S.user].squad,S.form));
   return f.length?Math.round(f.reduce(function(s,p){return s+p.ovr},0)/f.length):0;
@@ -5919,40 +6076,43 @@ var GEOPINS={SAM:[['BRA','Brasil','58%','33%'],['ARG','Argentina','39%','62%'],[
 var TINYPIN={SUR:1,GUY:1,GUF:1,SUI:1};
 var GEOLG={BRA:['BRA','BRB'],ARG:['ARG'],URU:['URU'],CHL:['CHL'],ECU:['ECU'],CLM:['CLM'],PRU:['PRU'],PRT:['PRT'],BLV:['BLV'],PRY:['PRY'],VNZ:['VNZ'],ENG:['ENG','ENC'],FRA:['FRA'],ESP:['ESP'],GER:['GER'],ITA:['ITA'],MLS:['MLS'],MEX:['MEX'],CAN:['CAN'],AUS:['AUS'],NZL:['NZL'],SUR:['SUR'],GUY:['GUY'],GUF:['GUF'],SUI:['SUI'],TUR:['TUR'],GRE:['GRE'],SWE:['SWE']};
 var YCONT=(function(){var m={Inglaterra:'EUR'},cur='EUR',st={ALB:'EUR',ARG:'SAM',AIA:'NAM',ALG:'AFR',AFG:'ASI',ASA:'OCE'};COUNTRIES.forEach(function(c){if(st[c.c])cur=st[c.c];m[c.n]=cur});return m})();
-var YGEO=Object.assign({},YCONT,{'Suriname':'SAM','Guiana':'SAM','Guiana Francesa':'SAM'});if(YCOUNTRIES.indexOf('Guiana Francesa')<0)YCOUNTRIES.push('Guiana Francesa');
+var YGEO=Object.assign({},YCONT,{'Suriname':'SAM','Guiana':'SAM','Guiana Francesa':'SAM','Austrália':'OCE','Nova Zelândia':'OCE'});if(YCOUNTRIES.indexOf('Guiana Francesa')<0)YCOUNTRIES.push('Guiana Francesa');
 function geoHTML(g){
-  var fm=g.mode==='filter',sc=g.mode==='scout'||fm,x=g.mode==='scout'?S.yscout[ui.yi]:null,cn=function(k){return (GEOCN.filter(function(c){return c[0]===k})[0]||[k,k])[1]};
-  var left=g.step==='continent'?(sc?'<button class="btn ghost" style="width:auto;min-height:34px;padding:6px 14px;font-size:13px" data-act="'+(fm?'fmapx':'ymapx')+'">‹ '+(fm?'Filtros':'Olheiro')+'</button>':'<button class="btn ghost" style="width:auto;min-height:34px;padding:6px 14px;font-size:13px" data-act="tostart">‹ Voltar</button>'):'<button class="btn ghost" style="width:auto;min-height:34px;padding:6px 14px;font-size:13px" data-act="gmback">‹ Continentes</button>';
-  var top='<div class="world-stage-top" style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px">'+left+'<span style="white-space:nowrap">ETAPA '+(g.step==='continent'?1:2)+' / '+(sc?2:3)+'</span></div>',R='<div class="world-stage-root" style="height:auto;overflow:visible">';
+  g.zv=null;
+  var fm=g.mode==='filter',sc=g.mode==='scout'||fm||(g.mode==='int'&&!document.body.classList.contains('ld')),x=g.mode==='scout'?S.yscout[ui.yi]:null,nat=g.mode==='int'&&g.k==='n'&&!sc,cn=function(k){return (GEOCN.filter(function(c){return c[0]===k})[0]||[k,k])[1]};
+  var left=g.step==='continent'?(sc?'<button class="btn ghost" style="width:auto;min-height:34px;padding:6px 14px;font-size:13px" data-act="'+(fm?'fmapx':g.mode==='int'?'imapx':'ymapx')+'">‹ '+(fm?'Filtros':g.mode==='int'?'Voltar':'Olheiro')+'</button>':'<button class="btn ghost" style="width:auto;min-height:34px;padding:6px 14px;font-size:13px" data-act="'+(g.mode==='int'?'imapx':'tostart')+'">‹ Voltar</button>'):'<button class="btn ghost" style="width:auto;min-height:34px;padding:6px 14px;font-size:13px" data-act="gmback">‹ Continentes</button>';
+  var top='<div class="world-stage-top" style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px">'+left+'<span style="white-space:nowrap">ETAPA '+(g.step==='continent'?1:2)+' / '+((g.mode==='scout'||fm||(g.mode==='int'&&g.k==='n'))?2:3)+'</span></div>',R='<div class="world-stage-root" style="height:auto;overflow:visible">';
   if(g.step==='continent'){
-    var pins=GEOCN.map(function(c){var h=GEOHOT[c[0]],ok=sc||!!GEOPINS[c[0]];return '<button class="continent-pin '+(ok?'ready':'soon')+'" style="left:'+h[0]+';top:'+h[1]+'" data-act="gmcont" data-v="'+c[0]+'"><b>'+c[1]+'</b>'+(ok?'':'<small>Em breve</small>')+'</button>'}).join('');
-    return R+top+'<section class="world-panel world-map-panel" style="flex:none;height:auto;overflow:visible"><div class="world-stage-head"><h2>Escolha o continente</h2><p>'+(fm?'Filtrar jogadores por continente ou país de origem.':sc?'Onde o olheiro vai procurar talentos?':'Toque no continente do clube que você quer comandar.')+'</p></div><div class="world-art world-art-world" style="flex:none;height:min(66vw,300px)"><div class="wa-in" style="--r:1.6667"><img class="world-art-img" src="'+worldMap+'" alt="Mapa-múndi"/>'+pins+'</div></div></section></div>';
+    var pins=GEOCN.map(function(c){var h=GEOHOT[c[0]],ok=sc||nat||!!GEOPINS[c[0]];return '<button class="continent-pin '+(ok?'ready':'soon')+'" style="left:'+h[0]+';top:'+h[1]+'" data-act="gmcont" data-v="'+c[0]+'"><b>'+c[1]+'</b>'+(ok?'':'<small>Em breve</small>')+'</button>'}).join('');
+    return R+top+'<section class="world-panel world-map-panel" style="flex:none;height:auto;overflow:visible"><div class="world-stage-head"><h2>Escolha o continente</h2><p>'+(fm?'Filtrar jogadores por continente ou país de origem.':g.mode==='int'?(g.k==='n'?'Toque no continente da seleção que você quer comandar.':'Toque no continente do clube em que você quer trabalhar.'):sc?'Onde o olheiro vai procurar talentos?':'Toque no continente do clube que você quer comandar.')+'</p></div><div class="world-art world-art-world" style="flex:none;height:min(66vw,300px)"><div class="wa-in" style="--r:1.6667"><img class="world-art-img" src="'+worldMap+'" alt="Mapa-múndi"/>'+pins+'</div></div></section></div>';
   }
-  var cm=GEOMAP[g.cont],h=GEOHOT[g.cont],cx=parseFloat(h[0]),cy=parseFloat(h[1]);
+  var cm=GEOMAP[g.cont],h=GEOHOT[g.cont],cx=parseFloat(h[0]),cy=parseFloat(h[1]),zs=g.cont==='ASI'?2:2.6;
   var pp=(GEOPINS[g.cont]||[]).map(function(p){var v=sc?YCN[p[0]]:p[0];return '<button class="country-territory'+(TINYPIN[p[0]]?' tiny':'')+'" style="left:'+p[2]+';top:'+p[3]+'" data-act="gmcty" data-v="'+v+'"><b>'+(FLAGS[YCN[p[0]]]||'')+'</b></button>'}).join('');
-  var art=cm?'<div class="wa-in" style="--r:'+cm[1]+'"><img class="world-art-img" src="'+cm[0]+'" alt="Mapa"/>'+pp+'</div>':'<div class="wa-in" style="--r:1.6667"><img class="world-art-img" style="transform-origin:0 0;transform:translate('+(50-2.6*cx)+'%,'+(50-2.6*cy)+'%) scale(2.6)" data-t0="translate('+(50-2.6*cx)+'%,'+(50-2.6*cy)+'%) scale(2.6)" src="'+worldMap+'" alt="Mapa"/></div>';
-  var head='<div class="world-stage-head"><h2>'+cn(g.cont)+'</h2><p>'+(cm?(sc?'Toque no país no mapa ou na lista abaixo.':'Toque no país no mapa.'):sc?'Escolha o país na lista: o mapa dá zoom nele.':'Ainda sem clubes neste continente.')+'</p></div>';
+  var art=cm?'<div class="wa-in" style="--r:'+cm[1]+'"><img class="world-art-img" src="'+cm[0]+'" alt="Mapa"/>'+pp+'</div>':'<div class="wa-in" style="--r:1.6667"><img class="world-art-img" style="transform-origin:0 0;transform:translate('+(50-zs*cx)+'%,'+(50-zs*cy)+'%) scale('+zs+')" data-t0="translate('+(50-zs*cx)+'%,'+(50-zs*cy)+'%) scale('+zs+')" src="'+worldMap+'" alt="Mapa"/></div>';
+  var head='<div class="world-stage-head"><h2>'+cn(g.cont)+'</h2><p>'+(cm?(sc?'Toque no país no mapa ou na lista abaixo.':nat?'Toque no país no mapa ou na lista.':'Toque no país no mapa.'):(sc||nat)?'Escolha o país na lista: o mapa dá zoom nele.':'Ainda sem clubes neste continente.')+'</p></div>';
   var list='';
   if(sc){var cur=fm?FS(g.fk).nat:(x&&x.nat);list='<div class="geo-conf" id="geoConf"></div><h2 class="h2s">Todos os países</h2><div class="geo-list"><div class="chips2">'+(fm?'<button class="'+(FS(g.fk).cont===g.cont?'on':'')+'" data-act="gmcty" data-v="CONT:'+g.cont+'">🌎 Todo o continente</button><button data-act="gmcty" data-v="ALL">Qualquer país</button>':'')+YCOUNTRIES.filter(function(n){return YGEO[n]===g.cont}).sort(function(a,b){return a.localeCompare(b,'pt')}).map(function(n){return '<button class="'+(n===cur?'on':'')+'" data-act="gmzoom" data-v="'+n+'">'+(FLAGS[n]||'')+' '+n+'</button>'}).join('')+'</div></div>'}
   if(sc)R='<div class="world-stage-root geo-sc" style="height:100%;overflow:hidden">';
   var side='';
-  if(!sc&&cm){side='<div class="geo-side"><h3>Países</h3><div class="geo-pl">'+(GEOPINS[g.cont]||[]).map(function(p){return '<button class="gcb" data-act="gmcty" data-v="'+p[0]+'"><b>'+(FLAGS[YCN[p[0]]]||'')+'</b><span>'+(YCN[p[0]]||p[1])+'</span></button>'}).join('')+'</div></div>'}
-  return R+top+'<section class="world-panel world-map-panel" style="flex:none;height:auto;overflow:visible">'+head+(cm||sc?'<div class="world-art world-art-continent" style="flex:none;height:min(100vw,430px)">'+art+'</div>':'<div class="coming-mark">🌍</div>')+side+'</section>'+list+'</div>';
+  if(!sc&&(cm||nat)){var pinL=(GEOPINS[g.cont]||[]),pinN=pinL.map(function(p){return YCN[p[0]]}),allL=nat?YCOUNTRIES.filter(function(n){return YGEO[n]===g.cont&&pinN.indexOf(n)<0}).sort(function(a,b){return a.localeCompare(b,'pt')}).map(function(n){return '<button class="gcb" data-act="gmzoom" data-v="'+n+'"><b>'+(FLAGS[n]||'')+'</b><span>'+n+'</span></button>'}).join(''):'';side='<div class="geo-side"><h3>Países</h3><div class="geo-pl">'+pinL.map(function(p){return '<button class="gcb" data-act="gmcty" data-v="'+p[0]+'"><b>'+(FLAGS[YCN[p[0]]]||'')+'</b><span>'+(YCN[p[0]]||p[1])+'</span></button>'}).join('')+allL+'</div><div class="geo-conf" id="geoConf"></div></div>'}
+  return R+top+'<section class="world-panel world-map-panel gm-'+g.cont+' gmm-'+g.mode+'" style="flex:none;height:auto;overflow:visible">'+head+(cm||sc||nat?'<div class="world-art world-art-continent" style="flex:none;height:min(100vw,430px)">'+art+'</div>':'<div class="coming-mark">🌍</div>')+side+'</section>'+list+'</div>';
 }
 var ZM={"Albânia":[53.2,81.6,3.6],"Andorra":[21.9,75.4,5.0],"Armênia":[95.1,71.8,3.6],"Áustria":[43.0,63.8,3.6],"Azerbaijão":[98,68.9,3.6],"Bielorrússia":[58.5,44.6,3.6],"Bélgica":[29.4,53.8,3.6],"Bósnia e Herzegovina":[48.7,73.0,3.6],"Bulgária":[61.2,76.0,3.6],"Croácia":[44.8,70.3,3.6],"Chipre":[80.6,93.9,5.0],"Tchéquia":[44.1,57.3,3.6],"Dinamarca":[36.3,39.4,3.6],"Inglaterra":[22.8,46,2.6],"Estônia":[52.8,31.2,3.6],"Ilhas Faroé":[22.5,19.3,5.0],"Finlândia":[51.3,19.0,2.6],"França":[24.5,63,2.6],"Geórgia":[90.7,68.3,3.6],"Alemanha":[38,53,2.6],"Gibraltar":[6.4,89.5,5.0],"Grécia":[57.5,87.1,3.6],"Hungria":[50.5,64.7,3.6],"Islândia":[16.1,7.5,2.6],"Israel":[87.3,98,5.0],"Itália":[42,79.5,2.6],"Cazaquistão":[98,32.0,1.7],"Kosovo":[54.2,77.2,5.0],"Letônia":[53.2,36.3,3.6],"Liechtenstein":[35.7,64.4,5.0],"Lituânia":[52.9,41.0,3.6],"Luxemburgo":[31.1,56.4,5.0],"Malta":[44.2,96.6,5.0],"Moldávia":[63.6,62.4,3.6],"Montenegro":[51.5,76.8,3.6],"Holanda":[30.9,49.5,3.6],"Macedônia do Norte":[55.9,79.9,3.6],"Irlanda do Norte":[17.2,39.1,3.6],"Noruega":[36.3,25.3,2.6],"Polônia":[48.8,50.8,2.6],"Portugal":[4.8,79,3.6],"Irlanda":[14.7,42.3,3.6],"Romênia":[59.2,67.1,3.6],"Rússia":[67.6,35.6,1.7],"San Marino":[40.1,73.8,5.0],"Escócia":[21.5,34.1,3.6],"Sérvia":[53.7,73.2,3.6],"Eslováquia":[50.0,60.1,3.6],"Eslovênia":[43.6,67.7,3.6],"Espanha":[13.5,80.5,2.6],"Suécia":[41.7,22.7,2.6],"Suíça":[33.5,65.1,4.2],"Turquia":[80.6,81.9,2.6],"Ucrânia":[66.3,56.5,2.6],"País de Gales":[19.3,46.5,3.6],"Anguilla":[92.4,82.9,5.5],"Antígua e Barbuda":[94.6,84.3,5.5],"Aruba":[83.0,90.8,5.5],"Bahamas":[72.8,74.9,5.5],"Barbados":[98,89.4,5.5],"Belize":[54.1,83.2,3.2],"Bermudas":[86.2,64.0,5.5],"Ilhas Virgens Britânicas":[90.0,82.7,5.5],"Canadá":[50,30,1.7],"Ilhas Cayman":[65.3,81.2,5.5],"Costa Rica":[60.0,93.5,3.2],"Cuba":[68.6,78.0,2.6],"Curaçao":[84.6,91.2,5.5],"Dominica":[95.8,86.6,5.5],"República Dominicana":[81.6,82.2,3.2],"El Salvador":[53.0,87.8,3.2],"Granada":[96.3,91.0,5.5],"Guatemala":[51.1,85.2,2.6],"Guiana":[51.6,12.0,4.2],"Haiti":[77.9,82.0,3.2],"Honduras":[56.7,86.7,3.2],"Jamaica":[71.1,83.1,3.2],"México":[37,70.5,2.6],"Montserrat":[94.1,84.8,5.5],"Nicarágua":[59.0,89.6,3.2],"Panamá":[66.9,95.8,3.2],"Porto Rico":[87.3,83.1,5.5],"São Cristóvão e Nevis":[93.2,84.1,5.5],"Santa Lúcia":[96.9,88.6,5.5],"São Vicente e Granadinas":[96.8,89.5,5.5],"Suriname":[57.9,12.6,4.6],"Trinidad e Tobago":[97.5,93.2,5.5],"Ilhas Turcas e Caicos":[78.9,78.2,5.5],"EUA":[47,52,1.7],"Ilhas Virgens Americanas":[89.6,82.8,5.5],"Argélia":[49.1,44.6,3.0],"Angola":[53.4,70.5,5.0],"Benin":[48.9,56.4,7.0],"Botsuana":[55.4,76.8,5.0],"Burkina Faso":[47.7,54.6,7.0],"Burundi":[57.2,64.9,6.5],"Cabo Verde":[41.0,52.1,6.5],"Camarões":[52.0,58.9,5.0],"República Centro-Africana":[54.3,58.4,5.0],"Chade":[53.8,52.7,5.0],"Comores":[61.3,70.4,6.5],"Congo":[52.7,63.0,5.0],"RD Congo":[55.3,64.5,3.0],"Costa do Marfim":[46.5,57.6,7.0],"Djibuti":[61.0,55.3,6.5],"Egito":[57.1,45.6,3.0],"Guiné Equatorial":[51.3,61.5,7.0],"Eritreia":[60.1,53.1,7.0],"Essuatíni":[57.7,79.8,6.5],"Etiópia":[60.4,57.0,5.0],"Gabão":[51.6,63.1,5.0],"Gâmbia":[43.6,53.8,6.5],"Gana":[47.9,57.4,7.0],"Guiné":[44.9,55.4,7.0],"Guiné-Bissau":[43.6,54.7,7.0],"Quênia":[59.6,62.5,5.0],"Lesoto":[56.7,81.7,6.5],"Libéria":[45.3,58.3,7.0],"Líbia":[53.5,45.4,3.0],"Madagascar":[62.4,75.4,5.0],"Malauí":[58.6,71.3,7.0],"Mali":[47.2,51.4,5.0],"Mauritânia":[45.2,49.5,5.0],"Maurício":[65.8,76.2,6.5],"Marrocos":[46.5,42.2,5.0],"Moçambique":[58.9,74.8,5.0],"Namíbia":[53.3,76.8,5.0],"Níger":[50.6,51.7,5.0],"Nigéria":[50.6,56.4,5.0],"Ruanda":[57.2,64.0,6.5],"São Tomé e Príncipe":[50.2,62.3,6.5],"Senegal":[43.9,53.1,7.0],"Seicheles":[65.0,66.1,6.5],"Serra Leoa":[44.6,56.9,7.0],"Somália":[62.1,59.6,5.0],"África do Sul":[55.6,81.3,5.0],"Sudão do Sul":[57.3,58.1,5.0],"Sudão":[57.2,52.7,3.0],"Tanzânia":[58.7,66.8,5.0],"Togo":[48.4,57.0,7.0],"Tunísia":[51.1,40.9,7.0],"Uganda":[57.9,61.9,7.0],"Zâmbia":[56.6,71.4,5.0],"Zimbábue":[57.2,74.9,7.0],"Afeganistão":[67.7,41.2,5.0],"Austrália":[89.5,80.7,3.0],"Bahrein":[63.2,46.2,6.5],"Bangladesh":[75.1,47.8,7.0],"Butão":[75.0,45.5,7.0],"Brunei":[82.8,60.7,6.5],"Camboja":[79.6,55.3,5.0],"China":[78.6,40.6,3.0],"Taipé Chinês":[84.2,48.1,6.5],"Guam":[91.6,55.0,6.5],"Hong Kong":[82.2,49.0,6.5],"Índia":[71.7,48.9,3.0],"Indonésia":[83.0,65.3,3.0],"Irã":[64.3,42.0,5.0],"Iraque":[61.2,41.6,5.0],"Japão":[89.0,39.7,5.0],"Jordânia":[59.1,42.8,6.5],"Coreia do Norte":[85.6,37.2,7.0],"Coreia do Sul":[85.9,39.8,7.0],"Kuwait":[62.3,44.0,6.5],"Quirguistão":[70.1,36.2,7.0],"Laos":[79.2,51.4,5.0],"Líbano":[58.9,41.0,6.5],"Macau":[82.0,49.0,6.5],"Malásia":[79.0,60.8,5.0],"Maldivas":[70.3,61.1,6.5],"Mongólia":[78.6,32.8,3.0],"Mianmar":[76.8,49.7,5.0],"Nepal":[73.2,44.9,7.0],"Omã":[65.2,49.5,5.0],"Paquistão":[68.8,43.7,5.0],"Palestina":[58.7,42.3,6.5],"Filipinas":[84.8,55.2,5.0],"Catar":[63.5,46.6,6.5],"Arábia Saudita":[61.6,47.4,3.0],"Singapura":[79.6,62.6,6.5],"Sri Lanka":[72.5,58.2,7.0],"Síria":[59.6,40.3,7.0],"Tajiquistão":[69.2,37.9,7.0],"Tailândia":[78.4,53.7,5.0],"Timor-Leste":[86.5,69.6,7.0],"Turcomenistão":[65.8,37.8,5.0],"Emirados Árabes Unidos":[64.3,47.5,7.0],"Uzbequistão":[67.3,36.3,5.0],"Vietnã":[80.2,53.1,5.0],"Iêmen":[62.4,52.9,5.0],"Samoa Americana":[2,23.9,3.0],"Ilhas Cook":[2,37.9,3.0],"Fiji":[80.6,32.7,3.0],"Nova Caledônia":[65.8,39.9,3.0],"Nova Zelândia":[76,80,2.6],"Papua-Nova Guiné":[44.2,9.6,3.0],"Samoa":[2,22.9,3.0],"Ilhas Salomão":[59.7,16.3,3.0],"Taiti":[2,30.8,3.0],"Tonga":[2,37.8,3.0],"Vanuatu":[67.5,28.0,3.0],"Brasil":[58,33,1.7],"Argentina":[39,62,2.2],"Uruguai":[57.2,60.6,2.7],"Chile":[27.5,66,2.7],"Equador":[16.5,18,2.7],"Colômbia":[24.5,12,2.7],"Venezuela":[40,9,2.7],"Peru":[24,29.5,2.7],"Bolívia":[41,38,2.7],"Paraguai":[50.5,46,2.7],"Guiana Francesa":[63.5,12.1,5.2]};
 function geoZoom(v){
   var g=ui.gm,w=document.querySelector('.world-art-continent .wa-in');if(!g||!w)return;
+  if(!v)g.zv=null;
   var cm=GEOMAP[g.cont],el=cm?w:w.querySelector('.world-art-img'),z=v&&ZM[v];
   if(!el)return;
-  var t0=el.getAttribute('data-t0')||'translate(0%,0%) scale(1)';
+  var t0=el.getAttribute('data-t0')||'';
   el.style.transformOrigin='0 0';
   if(z){var sc=z[2],cx=Math.min(Math.max(z[0],50/sc),100-50/sc),cy=Math.min(Math.max(z[1],50/sc),100-50/sc);
     el.style.transform='translate('+(50-sc*cx).toFixed(2)+'%,'+(50-sc*cy).toFixed(2)+'%) scale('+sc+')';if(cm)w.style.setProperty('--z',sc);}
-  else{el.style.transform=t0;if(cm)w.style.setProperty('--z',1);}
+  else{el.style.transform=t0;if(!t0)el.style.transformOrigin='';if(cm)w.style.setProperty('--z',1);}
   document.querySelectorAll('.geo-list .chips2 button').forEach(function(b){b.classList.toggle('zoomed',!!v&&b.getAttribute('data-v')===v)});
   var bar=document.getElementById('geoConf');
   if(bar){if(v){bar.classList.add('on');bar.innerHTML='<button class="btn" data-act="gmcty" data-v="'+v+'">✔ Escolher '+(FLAGS[v]||'')+' '+v+'</button><button class="btn ghost" data-act="gmzoomx" aria-label="Ver mapa inteiro">✕</button>'}else{bar.classList.remove('on');bar.innerHTML=''}}
 }
+function ccode(v){if(GEOLG[v])return v;for(var k in YCN)if(YCN[k]===v)return k;return v}
 var YCN={BRA:'Brasil',ARG:'Argentina',URU:'Uruguai',CHL:'Chile',ECU:'Equador',CLM:'Colômbia',PRU:'Peru',PRT:'Portugal',BLV:'Bolívia',PRY:'Paraguai',VNZ:'Venezuela',ENG:'Inglaterra',FRA:'França',ESP:'Espanha',GER:'Alemanha',ITA:'Itália',MLS:'EUA',MEX:'México',CAN:'Canadá',AUS:'Austrália',NZL:'Nova Zelândia',SUR:'Suriname',GUY:'Guiana',GUF:'Guiana Francesa',SUI:'Suíça',TUR:'Turquia',GRE:'Grécia',SWE:'Suécia'};
 /* ----- telas de início ----- */
 function useSlot(){
@@ -6005,7 +6165,7 @@ function clubShow(c){if(CSTRC[c.id]!=null)return CSTRC[c.id];var v=c.str;try{var
 function pickHTML(){
   var g=ui.gm&&ui.gm.mode==='club'?ui.gm:(ui.gm={mode:'club',step:'continent',cont:'SAM',cty:'BRA'});
   if(g.step!=='clubs')return geoHTML(g);
-  var lgs=GEOLG[g.cty]||['BRA'],lg=lgs.indexOf(ui.pickLg)>=0?ui.pickLg:lgs[0];ui.pickLg=lg;var list=REAL.filter(function(c){return c.lg===lg}).sort(function(a,b){return b.str-a.str});
+  var lgs=GEOLG[g.cty]||['BRA'],lg=lgs.indexOf(ui.pickLg)>=0?ui.pickLg:lgs[0];ui.pickLg=lg;var list=REAL.filter(function(c){return c.lg===lg}).sort(function(a,b){return (clubShow(b)-clubShow(a))||(b.str-a.str)});
   var h='<div class="bar"><button class="ghost" data-act="gmbackcty">← Países</button><h2 class="ttl">Escolha o time</h2></div>';
   h+='<div class="gchips">'+lgs.map(function(l){return '<button class="'+(l===lg?'on':'')+'" data-act="pklg" data-v="'+l+'" style="font-size:16px;padding:6px 12px">'+LG[l].fl+' '+LG[l].s+'</button>'}).join('')+'</div>';
   h+='<section class="sec first"><p class="note">'+LG[lg].n+' · '+list.length+' clubes. Times fortes têm mais dinheiro e metas mais duras. Times pequenos pedem paciência.</p><div class="picker">';
@@ -6031,7 +6191,7 @@ function headHTML(){
   var c=CM[S.user];
   var tabs=[['Central','home'],['Elenco','escal'],['Transf.','transf'],['Escritório','diretoria'],['Temporada','tabela']];
   var act={home:0,jogo:0,agenda:0,dev:0,escal:1,central:1,selecoes:1,tatica:1,elenco:1,base:1,transf:2,diretoria:3,tabela:4,calendario:4,proximo:4}[screen];
-  var h='<header class="hd">'+badge(c,48)+'<div style="min-width:0;flex:1"><div class="hn"><h1>'+c.name+'</h1></div><p class="sub">Temporada '+seasonLbl()+'</p></div><div class="ovr">'+teamOvr()+'</div></header>';
+  var h='<header class="hd">'+badge(c,48)+'<div style="min-width:0;flex:1"><div class="hn"><h1>'+c.name+'</h1></div><p class="sub">Temporada '+seasonLbl()+'</p></div><div class="ovr" style="background:'+ovrBg(teamOvr())+'">'+teamOvr()+'</div></header>';
   h+='<nav class="tabs">'+tabs.map(function(t,i){return '<button data-act="go" data-v="'+t[1]+'" class="'+(i===act?'on':'')+'">'+t[0]+'</button>'}).join('')+'</nav>';
   return h;
 }
@@ -7391,12 +7551,12 @@ function transfHTML(){
   if(v==='prop'&&ui.oScr){var nsc=negScreen();if(nsc)return nsc;ui.oScr=null}
   if(v==='prop'){
     var pt=ui.pt||'prop', Y=2025+S.season;
-    if((pt==='venda'||pt==='emp')&&ui.vsel!=null){var isL=pt==='emp',vs=sq.filter(function(x){return x.id===ui.vsel})[0];
+    if((pt==='venda'||pt==='emp'||pt==='prop'||pt==='loanp')&&ui.vsel!=null){var isL=pt==='emp'||pt==='loanp',isO=pt==='prop'||pt==='loanp',vs=sq.filter(function(x){return x.id===ui.vsel})[0];
       if(vs){var vtb=(ui.cTab==='stats'||ui.cTab==='dev')?ui.cTab:'status',von=(isL?S.loanL:S.sale).indexOf(vs.id)>=0,T3={status:'Status',stats:'Estat.',dev:'Desenv.'};
-        return '<div class="bar"><button class="ghost" data-act="vsel" data-v="'+vs.id+'">← Voltar</button><h2 class="ttl">Ficha do jogador</h2><button class="mini '+(von?'bad':'buy')+'" data-act="'+(isL?'loanl':'sale')+'" data-v="'+vs.id+'" style="margin-left:auto;min-height:36px;padding:0 14px">'+(isL?(von?'Retirar do empréstimo':'Oferecer ao empréstimo'):(von?'Retirar da venda':'Pôr à venda'))+'</button></div><div class="stabs ftabs">'+Object.keys(T3).map(function(k){return '<button data-act="ctab" data-v="'+k+'" class="'+(k===vtb?'on':'')+'">'+T3[k]+'</button>'}).join('')+'</div><div class="fullficha">'+fichaHTML(vs,vtb)+'</div>';}
+        return '<div class="bar"><button class="ghost" data-act="vsel" data-v="'+vs.id+'">← Voltar</button><h2 class="ttl">Ficha do jogador</h2>'+(isO?'':'<button class="mini '+(von?'bad':'buy')+'" data-act="'+(isL?'loanl':'sale')+'" data-v="'+vs.id+'" style="margin-left:auto;min-height:36px;padding:0 14px">'+(isL?(von?'Retirar do empréstimo':'Oferecer ao empréstimo'):(von?'Retirar da venda':'Pôr à venda'))+'</button>')+'</div><div class="stabs ftabs">'+Object.keys(T3).map(function(k){return '<button data-act="ctab" data-v="'+k+'" class="'+(k===vtb?'on':'')+'">'+T3[k]+'</button>'}).join('')+'</div><div class="fullficha">'+fichaHTML(vs,vtb)+'</div>';}
       ui.vsel=null;}
     h+=tcrumb('Propostas')+'<div class="stabs" style="margin-top:2px">'+[['prop','Vendas ('+S.offers.filter(function(o){return o.t==='buy'}).length+')'],['loanp','Empréstimos ('+S.offers.filter(function(o){return o.t==='loan'}).length+')'],['venda','À venda'],['emp','Emprestar']].map(function(t){return '<button data-act="ptab" data-v="'+t[0]+'" class="'+(t[0]===pt?'on':'')+'">'+t[1]+'</button>'}).join('')+'</div>';
-    var offRow=function(o){var pl=sq.filter(function(q){return q.id===o.pid})[0],cc=CM[o.club],mv=pl?val(pl):0,d=mv?Math.round((o.amt/mv-1)*100):0,loan=o.t!=='buy';return '<div class="ofx"><div class="ofx-top"><span class="ofx-cr">'+badge(cc,40)+'</span><div><b>'+cc.name+'</b><small>'+(loan?'Quer por empréstimo':'Quer comprar')+'</small></div><span class="ofx-ger"><small>GER</small>'+o.po+'</span></div><div class="ofx-pl"><b>'+o.pn+'</b>'+(pl?'<span>'+sp(pl)+' · '+pAge(pl)+' anos · '+pFlag(pl)+' '+pNac(pl)+'</span>':'')+'</div><div class="ofx-val"><div><small>Oferta</small><b>'+money(o.amt)+'</b></div><div><small>Valor do jogador</small><b>'+(mv?money(mv):'—')+'</b></div>'+(mv?'<em class="'+(d>=0?'up':'dn')+'">'+(d>=0?'+':'')+d+'%</em>':'')+'</div><div class="ofx-act"><button class="ofx-b ok" data-act="oacc" data-v="'+o.id+'">Aceitar</button><button class="ofx-b" data-act="oneg" data-v="'+o.id+'">Negociar</button><button class="ofx-b no" data-act="orej" data-v="'+o.id+'">Recusar</button></div></div>'};
+    var offRow=function(o){var pl=sq.filter(function(q){return q.id===o.pid})[0],cc=CM[o.club],mv=pl?val(pl):0,d=mv?Math.round((o.amt/mv-1)*100):0,loan=o.t!=='buy';return '<div class="ofx"><div class="ofx-top"><span class="ofx-cr">'+badge(cc,40)+'</span><div><b>'+cc.name+'</b><small>'+(loan?'Quer por empréstimo':'Quer comprar')+'</small></div><span class="ofx-ger"><small>GER</small>'+o.po+'</span></div><div class="ofx-pl"><b class="ofx-nm"'+(pl?' data-act="vsel" data-v="'+pl.id+'" role="button"':'')+'>'+o.pn+'</b>'+(pl?'<span>'+sp(pl)+' · '+pAge(pl)+' anos · '+pFlag(pl)+' '+pNac(pl)+'</span>':'')+'</div><div class="ofx-val"><div><small>Oferta</small><b>'+money(o.amt)+'</b></div><div><small>Valor do jogador</small><b>'+(mv?money(mv):'—')+'</b></div>'+(mv?'<em class="'+(d>=0?'up':'dn')+'">'+(d>=0?'+':'')+d+'%</em>':'')+'</div><div class="ofx-act"><button class="ofx-b ok" data-act="oacc" data-v="'+o.id+'">Aceitar</button><button class="ofx-b" data-act="oneg" data-v="'+o.id+'">Negociar</button><button class="ofx-b no" data-act="orej" data-v="'+o.id+'">Recusar</button></div></div>'};
     var sorted=sq.slice().sort(function(a,b){return val(b)-val(a)||b.ovr-a.ovr});
     var byAmt=function(a,b){return b.amt-a.amt};
     if(pt==='prop'){
@@ -7766,29 +7926,38 @@ function switchClub(id){
 }
 function jobsHTML(){
   var h=ecrumb('Propostas de clubes',['emp','Técnico']), st=standings();
-  h+='<p class="note" style="padding:2px">No meio da temporada, outros clubes podem fazer propostas pelo seu trabalho. Ao aceitar, você assume o novo clube na hora. Boas campanhas e confiança alta atraem mais convites.</p>';
+  h+='<div class="xcols"><div class="xcl"><p class="note" style="padding:2px">No meio da temporada, outros clubes podem fazer propostas pelo seu trabalho. Ao aceitar, você assume o novo clube na hora. Boas campanhas e confiança alta atraem mais convites.</p>';
   if(!S.jobs.length)h+='<div class="objs"><div class="obj"><div class="ot"><b>Nenhuma proposta no momento</b></div><small>Novos convites podem chegar a cada 10 dias, durante a temporada.</small></div></div>';
   else h+='<div class="objs">'+S.jobs.map(function(j){
     var c=CM[j.club], pos=st.findIndex(function(r){return r.id===j.club})+1, fa=Math.round((facLv(j.club,'ct')+facLv(j.club,'base')+facLv(j.club,'est'))/3*10)/10;
-    return '<div class="obj"><div class="ot"><b>'+c.name+'</b><span>'+pos+'º</span></div><small>Força '+Math.round(c.str)+' (a sua: '+Math.round(CM[S.user].str)+') · instalações '+fa+' · expira em '+(j.exp-S.day)+' dia(s)</small><div class="bact"><button class="btn sm" data-act="jobacc" data-v="'+j.id+'">'+(ui.jc===j.id?'Confirmar troca':'Aceitar')+'</button><button class="btn sm alt" data-act="jobrej" data-v="'+j.id+'">Recusar</button></div></div>';
+    var jl=S.lg[j.club],jg=LG[jl]||{},jc=COMP[jl]||jg.s||'';return '<div class="obj ofr"><div class="ot"><span class="ofb">'+badge(c,44)+'</span><div class="oft"><b>'+c.name+'</b><em>'+(jg.fl||'')+' '+jc+'</em></div><span>'+pos+'º</span></div><small>Força '+Math.round(c.str)+' (a sua: '+Math.round(CM[S.user].str)+') · instalações '+fa+' · expira em '+(j.exp-S.day)+' dia(s)</small><div class="bact"><button class="btn sm" data-act="jobacc" data-v="'+j.id+'">'+(ui.jc===j.id?'Confirmar troca':'Aceitar')+'</button><button class="btn sm alt" data-act="jobrej" data-v="'+j.id+'">Recusar</button></div></div>';
   }).join('')+'</div>';
-  return h+interestClubsHTML();
+  return h+'</div><div class="xcr">'+interestClubsHTML()+'</div></div>';
+}
+function intSel(k){
+  var a=S.intr[k];
+  if(!a.length)return '<p class="note" style="padding:2px">Nenhum interesse enviado ainda.</p>';
+  return '<div class="intg">'+a.map(function(v){return '<div class="intr on">'+(k==='c'?badge(CM[v],28)+'<div class="intt"><b>'+CM[v].name+'</b><small>Força '+Math.round(CM[v].str)+'</small></div>':'<span class="intf">'+(FLAGS[v]||'')+'</span><div class="intt"><b>'+v+'</b><small>Nível '+((NATC[v]||{}).s||'')+'</small></div>')+'<button class="btn sm alt" data-act="int'+k+'" data-v="'+v+'">✕ Remover</button></div>'}).join('')+'</div>';
+}
+function intMapHTML(){
+  var g=ui.imap;
+  if(g.k==='c'&&g.step==='clubs'){
+    var lgs=GEOLG[g.cty]||[],lg=lgs.indexOf(g.lg)>=0?g.lg:lgs[0];g.lg=lg;
+    var ids=lg?lgIds(lg).filter(function(id){return id!==S.user&&CM[id]}).sort(function(a,b){return CM[b].str-CM[a].str}):[];
+    var h='<div class="bar"><button class="ghost" data-act="imapb">← Países</button><h2 class="ttl">'+(FLAGS[YCN[g.cty]]||'')+' '+(YCN[g.cty]||g.cty)+' <small class="intn">'+S.intr.c.length+'/3</small></h2></div>';
+    if(lgs.length>1)h+='<div class="gchips">'+lgs.map(function(l){return '<button class="'+(l===lg?'on':'')+'" data-act="ipl" data-v="'+l+'">'+(LG[l]?LG[l].fl+' '+LG[l].s:l)+'</button>'}).join('')+'</div>';
+    h+='<div class="intg">'+(ids.length?ids.map(function(id){var on=S.intr.c.indexOf(id)>=0;return '<div class="intr'+(on?' on':'')+'">'+badge(CM[id],28)+'<div class="intt"><b>'+CM[id].name+'</b><small>Força '+Math.round(CM[id].str)+'</small></div><button class="btn sm'+(on?'':' alt')+'" data-act="intc" data-v="'+id+'">'+(on?'★ Interesse enviado':'☆ Adicionar interesse')+'</button></div>'}).join(''):'<p class="note" style="padding:10px 2px">Sem clubes disponíveis neste país.</p>')+'</div>';
+    return h;
+  }
+  return geoHTML(g);
 }
 function interestClubsHTML(){
   S.intr=S.intr||{c:[],n:[]};
-  var st=standings(),ids=lgIds(UL()).filter(function(id){return id!==S.user&&CM[id]}).sort(function(a,b){return CM[b].str-CM[a].str});
-  var h='<h2 class="h2s">Mostrar interesse <small class="intn">'+S.intr.c.length+'/3</small></h2><p class="note" style="padding:2px">Avise um clube que você quer trabalhar lá. Eles analisam seu trabalho e, se gostarem, mandam uma proposta. Máximo de 3 clubes ao mesmo tempo.</p><div class="intg">';
-  h+=ids.map(function(id){var on=S.intr.c.indexOf(id)>=0,pos=st.findIndex(function(r){return r.id===id})+1;
-    return '<div class="intr'+(on?' on':'')+'">'+badge(CM[id],28)+'<div class="intt"><b>'+CM[id].name+'</b><small>Força '+Math.round(CM[id].str)+' · '+pos+'º</small></div><button class="btn sm'+(on?'':' alt')+'" data-act="intc" data-v="'+id+'">'+(on?'★ Interesse enviado':'☆ Adicionar interesse')+'</button></div>'}).join('');
-  return h+'</div>';
+  return '<h2 class="h2s">Mostrar interesse <small class="intn">'+S.intr.c.length+'/3</small></h2><p class="note" style="padding:2px">Avise um clube que você quer trabalhar lá. Eles analisam seu trabalho e, se gostarem, mandam uma proposta. Máximo de 3 clubes ao mesmo tempo.</p>'+intSel('c')+'<button class="btn" data-act="imap" data-v="c" style="width:100%;margin:8px 0">🗺️ Escolher no mapa de transferências</button>';
 }
 function interestNatsHTML(){
   S.intr=S.intr||{c:[],n:[]};
-  var l=COUNTRIES.slice().sort(function(a,b){return b.s-a.s});
-  var h='<h2 class="h2s">Mostrar interesse <small class="intn">'+S.intr.n.length+'/3</small></h2><p class="note" style="padding:2px">Quer comandar uma seleção que ainda não ligou? Adicione o interesse. Se ela achar que você é bom, pode mandar o convite. Máximo de 3 seleções ao mesmo tempo.</p><div class="intg">';
-  h+=l.map(function(c){var on=S.intr.n.indexOf(c.n)>=0;
-    return '<div class="intr'+(on?' on':'')+'"><span class="intf">'+(FLAGS[c.n]||'')+'</span><div class="intt"><b>'+c.n+'</b><small>Nível '+c.s+'</small></div><button class="btn sm'+(on?'':' alt')+'" data-act="intn" data-v="'+c.n+'">'+(on?'★ Interesse enviado':'☆ Adicionar interesse')+'</button></div>'}).join('');
-  return h+'</div>';
+  return '<h2 class="h2s">Mostrar interesse <small class="intn">'+S.intr.n.length+'/3</small></h2><p class="note" style="padding:2px">Quer comandar uma seleção que ainda não ligou? Adicione o interesse. Se ela achar que você é bom, pode mandar o convite. Máximo de 3 seleções ao mesmo tempo.</p>'+intSel('n')+'<button class="btn" data-act="imap" data-v="n" style="width:100%;margin:8px 0">🗺️ Escolher no mapa de transferências</button>';
 }
 /* v36: sala de troféus + estilo de vida */
 var LCAT={casa:['🏠','Casa'],cel:['📱','Celular'],car:['🚗','Carros'],rou:['👔','Roupas'],jog:['🎮','Jogos']};
@@ -8087,7 +8256,7 @@ function diretoriaHTML(){
   if(ev==='inst')return instalacoesHTML();
   if(ev==='conf')return objetivosHTML();
   if(ev==='cfg')return cfgHTML();
-  if(ev==='jobs')return jobsHTML();
+  if(ev==='jobs')return (ui.imap&&ui.imap.k==='c')?intMapHTML():jobsHTML();
   if(ev==='emp')return coachHubHTML();
   if(ev==='cstat')return coachStatHTML();
   if(ev==='cprof')return coachProfHTML();
@@ -8122,13 +8291,14 @@ function diretoriaHTML(){
     if(mv)h+='<h2 class="h2s">Movimento</h2><div class="frows">'+mv+'</div>';
     h+='</section>';
   }else if(ev==='sel'){
+    if(ui.imap&&ui.imap.k==='n')return intMapHTML();
     var N=S.nat,cur=N?N.name:null;S.njobs=(S.njobs||[]).filter(function(j){return j.exp>S.day});
-    h=ecrumb('Seleções',['emp','Técnico'])+'<section class="sec"><div class="nstat"><div><b>'+(cur?(FLAGS[cur]||'')+' '+cur:'Sem seleção')+'</b><span class="note">'+(cur?'Você comanda esta seleção. Convoque jogadores e ajuste a escalação.'+(N.rec?' Campanha: '+N.rec.w+'V '+N.rec.d+'E '+N.rec.l+'D.':''):'As seleções entram em contato quando gostam do seu trabalho. Nem todas vão querer você.')+'</span></div>'+(cur?'<div class="bact"><button class="btn sm" data-act="ev" data-v="conv">Convocação</button><button class="btn sm alt" data-act="go" data-v="selecoes">Escalação</button><button class="btn sm alt" data-act="leavenat">Deixar</button></div>':'')+'</div>';
+    h=ecrumb('Seleções',['emp','Técnico'])+'<section class="sec"><div class="xcols"><div class="xcl"><div class="nstat"><div><b>'+(cur?(FLAGS[cur]||'')+' '+cur:'Sem seleção')+'</b><span class="note">'+(cur?'Você comanda esta seleção. Convoque jogadores e ajuste a escalação.'+(N.rec?' Campanha: '+N.rec.w+'V '+N.rec.d+'E '+N.rec.l+'D.':''):'As seleções entram em contato quando gostam do seu trabalho. Nem todas vão querer você.')+'</span></div>'+(cur?'<div class="bact"><button class="btn sm" data-act="ev" data-v="conv">Convocação</button><button class="btn sm alt" data-act="go" data-v="selecoes">Escalação</button><button class="btn sm alt" data-act="leavenat">Deixar</button></div>':'')+'</div>';
     if(!cur){h+='<h2 class="h2s">Convites de seleções</h2>';
       if(!S.njobs.length)h+='<div class="objs"><div class="obj"><div class="ot"><b>Nenhum convite no momento</b></div><small>Bons resultados e um clube forte atraem convites. Cada seleção pode ou não te escolher.</small></div></div>';
-      else h+='<div class="objs">'+S.njobs.map(function(j){var c=NATC[j.nat]||{s:60};return '<div class="obj"><div class="ot"><b>'+(FLAGS[j.nat]||'')+' '+j.nat+'</b></div><small>Nível '+c.s+' · convite válido por '+Math.max(0,j.exp-S.day)+' dias</small><div class="bact"><button class="btn sm" data-act="natacc" data-v="'+j.id+'">Aceitar</button><button class="btn sm alt" data-act="natrej" data-v="'+j.id+'">Recusar</button></div></div>'}).join('')+'</div>';
-      h+=interestNatsHTML();}
-    if(cur)h+=natCycleHTML();
+      else h+='<div class="objs">'+S.njobs.map(function(j){var c=NATC[j.nat]||{s:60};return '<div class="obj ofr"><div class="ot"><span class="ofb ofl">'+(FLAGS[j.nat]||'')+'</span><div class="oft"><b>'+j.nat+'</b><em>Seleção nacional</em></div></div><small>Nível '+c.s+' · convite válido por '+Math.max(0,j.exp-S.day)+' dias</small><div class="bact"><button class="btn sm" data-act="natacc" data-v="'+j.id+'">Aceitar</button><button class="btn sm alt" data-act="natrej" data-v="'+j.id+'">Recusar</button></div></div>'}).join('')+'</div>';
+      h+='</div><div class="xcr">'+interestNatsHTML()+'</div></div>';}
+    if(cur)h+='</div><div class="xcr">'+natCycleHTML()+'</div></div>';
     h+='</section>';
   }else if(ev==='conv'){
     h=convHTML();
@@ -8654,9 +8824,19 @@ function mStats(ed,club,key){
   return {g:out(G),a:out(A)}}
 
 /* v72: Competições — mesmo estilo de zoom do Olheiro (mapa + lista de países com zoom) */
+function contIc(c){var ks={SAM:['LIB','SUL'],EUR:['UCL','UEL'],NAM:['CCC','CCH','CON'],OCE:['OCC','OFC']}[c]||[];for(var i=0;i<ks.length;i++){if(CLOGO[ks[i]])return cIcon(ks[i],26)}return '<span class="rlg" style="font-size:22px">🏆</span>'}
 function wGeoWrap(h){
   var cont=ui.worldContinent,L=(window._wc||[]).filter(function(c){return c[5]===cont});
   if(!L.length)return h;
+  var ld=document.body.classList.contains('ld');
+  if(ld){
+    var cbm=h.match(/<button class="cont-btn"[^>]*>[\s\S]*?<\/button>/),cb=cbm?cbm[0]:'';
+    h=h.replace(cb,'').replace('Selecione um país diretamente no território.','Toque no país no mapa.');
+    h=h.replace('</p></div><div class="world-art','</p>'+cb+'</div><div class="world-art');
+    var side='<div class="geo-side wg"><h3>Países</h3><div class="geo-pl">'+L.map(function(c){return '<button class="gcb" data-act="wzoom" data-v="'+c[0]+'"><b>'+c[1]+'</b><span>'+c[2]+'</span></button>'}).join('')+'</div><div class="geo-conf" id="geoConf"></div></div>';
+    var j=h.lastIndexOf('</section>');
+    return j<0?h:h.slice(0,j)+side+h.slice(j);
+  }
   h=h.replace('class="world-stage-root"','class="world-stage-root geo-sc" style="height:100%;overflow:hidden"');
   h=h.replace('Selecione um país diretamente no território.','Toque na bandeira ou escolha o país na lista: o mapa dá zoom nele.');
   var list='<div class="geo-conf" id="geoConf"></div><h2 class="h2s">Todos os países</h2><div class="geo-list"><div class="chips2">'+L.map(function(c){return '<button data-act="wzoom" data-v="'+c[0]+'">'+c[1]+' '+c[2]+'</button>'}).join('')+'</div></div>';
@@ -8671,10 +8851,10 @@ function wZoom(code){
   el.style.transformOrigin='0 0';
   if(z){var sc=z[2],cx=Math.min(Math.max(z[0],50/sc),100-50/sc),cy=Math.min(Math.max(z[1],50/sc),100-50/sc);
     el.style.transform='translate('+(50-sc*cx).toFixed(2)+'%,'+(50-sc*cy).toFixed(2)+'%) scale('+sc+')';w.style.setProperty('--z',sc)}
-  else{el.style.transform='translate(0%,0%) scale(1)';w.style.setProperty('--z',1)}
+  else{el.style.transform='';el.style.transformOrigin='';w.style.setProperty('--z',1)}
   document.querySelectorAll('.geo-list .chips2 button').forEach(function(b){b.classList.toggle('zoomed',!!code&&b.getAttribute('data-v')===code)});
   var bar=document.getElementById('geoConf');
-  if(bar){if(code&&c){bar.classList.add('on');bar.innerHTML='<button class="btn" data-act="wcountry" data-v="'+code+'">✔ Abrir competições: '+c[1]+' '+c[2]+'</button><button class="btn ghost" data-act="wzoomx" aria-label="Ver mapa inteiro">✕</button>'}else{bar.classList.remove('on');bar.innerHTML=''}}
+  if(bar){if(code&&c){bar.classList.add('on');bar.innerHTML='<button class="btn" data-act="wcountry" data-v="'+code+'">✔ Abrir '+c[1]+' '+c[2]+'</button><button class="btn ghost" data-act="wzoomx" aria-label="Ver mapa inteiro">✕</button>'}else{bar.classList.remove('on');bar.innerHTML=''}}
 }
 /* v72: Seleções — mapa-múndi com continentes e a Copa do Mundo dentro do mapa */
 function natsHTML(cr,row){
@@ -8762,15 +8942,15 @@ function tabelaHTML0(){
           var cc=available.filter(function(c){return c[0]===p[0]})[0];
           var q=zp('SAM',p[2],p[3]);return '<button class="country-territory'+(TINYPIN[p[0]]?' tiny':'')+'" style="left:'+q[0]+';top:'+q[1]+'" data-act="wcountry" data-v="'+p[0]+'"><b>'+cc[1]+'</b></button>';
         }).join('');
-        return '<div class="world-stage-root"><div class="world-stage-top"><button class="btn ghost" data-act="wback">‹ Continentes</button><span>ETAPA 2 / 3</span></div><section class="world-panel world-map-panel"><div class="world-stage-head"><h2>América do Sul</h2><p>Selecione um país diretamente no território.</p><button class="cont-btn" data-act="wcontcomps">🏆 Continentais</button></div><div class="world-art world-art-continent"><div class="wa-in" style="--r:0.6667"><img class="world-art-img" style="'+zimg('SAM')+'" src="'+southAmericaMap+'" alt="Mapa político da América do Sul"/>'+saPins+'</div></div><div class="world-stage-foot">BRASIL · ARGENTINA · URUGUAI · CHILE · EQUADOR · COLÔMBIA · PERU · PARAGUAI · BOLÍVIA · VENEZUELA · SURINAME · GUIANA · GUIANA FRANCESA</div></section></div>';
+        return '<div class="world-stage-root"><div class="world-stage-top"><button class="btn ghost" data-act="wback">‹ Continentes</button><span>ETAPA 2 / 3</span></div><section class="world-panel world-map-panel"><div class="world-stage-head"><h2>América do Sul</h2><p>Selecione um país diretamente no território.</p><button class="cont-btn btn" data-act="wcontcomps">'+contIc(cont)+'<span>Continentais</span></button></div><div class="world-art world-art-continent"><div class="wa-in" style="--r:0.6667"><img class="world-art-img" style="'+zimg('SAM')+'" src="'+southAmericaMap+'" alt="Mapa político da América do Sul"/>'+saPins+'</div></div><div class="world-stage-foot">BRASIL · ARGENTINA · URUGUAI · CHILE · EQUADOR · COLÔMBIA · PERU · PARAGUAI · BOLÍVIA · VENEZUELA · SURINAME · GUIANA · GUIANA FRANCESA</div></section></div>';
       }
       if(cont==='NAM'){
         var naPins=available.map(function(cc){var NP={MLS:['47%','52%'],MEX:['37%','70.5%'],CAN:['50%','30%']},pp=NP[cc[0]]||['47%','52%'],q=zp('NAM',pp[0],pp[1]);return '<button class="country-territory" style="left:'+q[0]+';top:'+q[1]+'" data-act="wcountry" data-v="'+cc[0]+'"><b>'+cc[1]+'</b></button>'}).join('');
-        return '<div class="world-stage-root"><div class="world-stage-top"><button class="btn ghost" data-act="wback">‹ Continentes</button><span>ETAPA 2 / 3</span></div><section class="world-panel world-map-panel"><div class="world-stage-head"><h2>América do Norte</h2><p>Selecione um país diretamente no território.</p><button class="cont-btn" data-act="wcontcomps">🏆 Continentais</button></div><div class="world-art world-art-continent"><div class="wa-in" style="--r:0.9384"><img class="world-art-img" src="'+northAmericaMap+'" alt="Mapa da América do Norte"/>'+naPins+'</div></div><div class="world-stage-foot">ESTADOS UNIDOS</div></section></div>';
+        return '<div class="world-stage-root"><div class="world-stage-top"><button class="btn ghost" data-act="wback">‹ Continentes</button><span>ETAPA 2 / 3</span></div><section class="world-panel world-map-panel"><div class="world-stage-head"><h2>América do Norte</h2><p>Selecione um país diretamente no território.</p><button class="cont-btn btn" data-act="wcontcomps">'+contIc(cont)+'<span>Continentais</span></button></div><div class="world-art world-art-continent"><div class="wa-in" style="--r:0.9384"><img class="world-art-img" src="'+northAmericaMap+'" alt="Mapa da América do Norte"/>'+naPins+'</div></div><div class="world-stage-foot">ESTADOS UNIDOS</div></section></div>';
       }
       if(cont==='OCE'){
         var ocPins=available.map(function(cc){var OP={AUS:['30%','45%'],NZL:['76%','80%']},pp=OP[cc[0]]||['50%','50%'];return '<button class="country-territory" style="left:'+pp[0]+';top:'+pp[1]+'" data-act="wcountry" data-v="'+cc[0]+'"><b>'+cc[1]+'</b></button>'}).join('');
-        return '<div class="world-stage-root"><div class="world-stage-top"><button class="btn ghost" data-act="wback">‹ Continentes</button><span>ETAPA 2 / 3</span></div><section class="world-panel world-map-panel"><div class="world-stage-head"><h2>Oceania</h2><p>Selecione um país diretamente no território.</p><button class="cont-btn" data-act="wcontcomps">🏆 Continentais</button></div><div class="world-art world-art-continent"><div class="wa-in" style="--r:1.5"><img class="world-art-img" src="'+oceaniaMap+'" alt="Mapa da Oceania"/>'+ocPins+'</div></div><div class="world-stage-foot">AUSTRÁLIA · NOVA ZELÂNDIA</div></section></div>';
+        return '<div class="world-stage-root"><div class="world-stage-top"><button class="btn ghost" data-act="wback">‹ Continentes</button><span>ETAPA 2 / 3</span></div><section class="world-panel world-map-panel"><div class="world-stage-head"><h2>Oceania</h2><p>Selecione um país diretamente no território.</p><button class="cont-btn btn" data-act="wcontcomps">'+contIc(cont)+'<span>Continentais</span></button></div><div class="world-art world-art-continent"><div class="wa-in" style="--r:1.5"><img class="world-art-img" src="'+oceaniaMap+'" alt="Mapa da Oceania"/>'+ocPins+'</div></div><div class="world-stage-foot">AUSTRÁLIA · NOVA ZELÂNDIA</div></section></div>';
       }
       if(cont!=='EUR'){
         return '<div class="world-stage-root"><div class="world-stage-top"><button class="btn ghost" data-act="wback">‹ Continentes</button><span>ETAPA 2 / 3</span></div><section class="world-panel world-map-panel world-coming"><div class="world-stage-head"><h2>'+contName+'</h2><p>O mapa deste continente será adicionado depois.</p></div><div class="coming-mark">🌍</div><b>MAPA EM PREPARAÇÃO</b><small>América do Sul e Europa já estão disponíveis.</small></section></div>';
@@ -8784,7 +8964,7 @@ function tabelaHTML0(){
         var cc=available.filter(function(c){return c[0]===p[0]})[0];
         var q=zp('EUR',p[2],p[3]);return '<button class="country-territory'+(TINYPIN[p[0]]?' tiny':'')+'" style="left:'+q[0]+';top:'+q[1]+'" data-act="wcountry" data-v="'+p[0]+'"><b>'+cc[1]+'</b></button>';
       }).join('');
-      return '<div class="world-stage-root"><div class="world-stage-top"><button class="btn ghost" data-act="wback">‹ Continentes</button><span>ETAPA 2 / 3</span></div><section class="world-panel world-map-panel"><div class="world-stage-head"><h2>Europa</h2><p>Selecione um país diretamente no território.</p><button class="cont-btn" data-act="wcontcomps">🏆 Continentais</button></div><div class="world-art world-art-europe"><div class="wa-in" style="--r:1.2304"><img class="world-art-img" style="'+zimg('EUR')+'" src="'+europeMap+'" alt="Mapa político da Europa"/>'+pins+'</div></div><div class="world-stage-foot">INGLATERRA · FRANÇA · ESPANHA · ALEMANHA · ITÁLIA · PORTUGAL · SUÍÇA · TURQUIA · GRÉCIA · SUÉCIA</div></section></div>';
+      return '<div class="world-stage-root"><div class="world-stage-top"><button class="btn ghost" data-act="wback">‹ Continentes</button><span>ETAPA 2 / 3</span></div><section class="world-panel world-map-panel"><div class="world-stage-head"><h2>Europa</h2><p>Selecione um país diretamente no território.</p><button class="cont-btn btn" data-act="wcontcomps">'+contIc(cont)+'<span>Continentais</span></button></div><div class="world-art world-art-europe"><div class="wa-in" style="--r:1.2304"><img class="world-art-img" style="'+zimg('EUR')+'" src="'+europeMap+'" alt="Mapa político da Europa"/>'+pins+'</div></div><div class="world-stage-foot">INGLATERRA · FRANÇA · ESPANHA · ALEMANHA · ITÁLIA · PORTUGAL · SUÍÇA · TURQUIA · GRÉCIA · SUÉCIA</div></section></div>';
     }
     return '<div class="world-stage-root"><div class="world-stage-top"><button class="btn ghost" data-act="wbackcountry">‹ Países</button><span>ETAPA 3 / 3</span></div><section class="world-panel world-map-panel world-leagues"><div class="world-stage-head"><h2>'+chosen[1]+' '+chosen[2]+'</h2><p>Competições deste país</p></div><div class="world-selected">'+grp('Ligas nacionais',lgs)+grp('Copas e torneios',cups)+(lgs.length||cups.length?'':'<p class="note">Ainda não há competições cadastradas para este país.</p>')+'</div></section></div>';
   }
@@ -9113,7 +9293,17 @@ document.addEventListener('click',function(e){
   else if(a==='wzoomx'){wZoom(null);return}
   else if(a==='ncont'){ui.ncont=v||null;ui.nk=null;render();topScroll();}
   else if(a==='gmzoomx'){geoZoom(null);return}
-  else if(a==='gmcty'){if(ui.gm.mode==='filter'){var ff9=FS(ui.gm.fk);if(v.indexOf('CONT:')===0){ff9.cont=v.slice(5);ff9.nat='ALL'}else{ff9.nat=v;ff9.cont='ALL'}ui.fMap=false;}else if(ui.gm.mode==='scout'){var gx=S.yscout[ui.yi];if(gx&&!(gx.left>0)){gx.nat=v;save();toast((FLAGS[v]||'').replace(/<[^>]*>/g,'')+' '+v+' escolhido.');}ui.yMap=false;}else{ui.gm.cty=v;ui.gm.step='clubs';ui.pickLg=null;ui.pickReal=null;}render();topScroll();}
+  else if(a==='gmcty'){if(ui.gm.mode==='filter'){var ff9=FS(ui.gm.fk);if(v.indexOf('CONT:')===0){ff9.cont=v.slice(5);ff9.nat='ALL'}else{ff9.nat=v;ff9.cont='ALL'}ui.fMap=false;}else if(ui.gm.mode==='scout'){var gx=S.yscout[ui.yi];if(gx&&!(gx.left>0)){gx.nat=v;save();toast((FLAGS[v]||'').replace(/<[^>]*>/g,'')+' '+v+' escolhido.');}ui.yMap=false;}else{
+    var gmo=ui.gm,gcode=ccode(v),gnm=YCN[gcode]||v;
+    if(gmo.mode==='int'&&gmo.k==='n'){v=GEOLG[v]?(YCN[v]||v):v;S.intr=S.intr||{c:[],n:[]};if(S.intr.n.indexOf(v)<0){if(S.intr.n.length>=3){toast('Máximo de 3 seleções ao mesmo tempo.');return}S.intr.n.push(v);save();toast('Interesse enviado: '+v)}ui.imap=null;ui.gm=null;}
+    else if(gmo.zv!==gcode&&!b.closest('#geoConf')){gmo.zv=gcode;geoZoom(gnm);return}
+    else if(gmo.mode==='int'){gmo.cty=gcode;gmo.step='clubs';gmo.lg=null}
+    else{ui.gm.cty=gcode;ui.gm.step='clubs';ui.pickLg=null;ui.pickReal=null;}
+  }render();topScroll();}
+  else if(a==='imap'){S.intr=S.intr||{c:[],n:[]};ui.gm=ui.imap={mode:'int',k:v,step:'continent',cont:'SAM'};render();topScroll();}
+  else if(a==='imapx'){ui.imap=null;ui.gm=null;render();topScroll();}
+  else if(a==='imapb'){ui.imap.step='country';render();topScroll();}
+  else if(a==='ipl'){ui.imap.lg=v;render();}
   else if(a==='ymap'){var yo=S.yscout[ui.yi];if(!yo||yo.left>0)return;var yc0=yo.nat&&YGEO[yo.nat];ui.gm={mode:'scout',step:yc0?'country':'continent',cont:yc0||'SAM'};ui.yMap=true;render();topScroll();}
   else if(a==='fmap'){ui.gm={mode:'filter',step:'continent',cont:'SAM',fk:v};ui.fMap=true;render();topScroll();}
   else if(a==='fmapx'){ui.fMap=false;render();topScroll();}
@@ -12598,6 +12788,25 @@ html body.ld #view .oh.thubx>.ocg>.oc p{display:block!important;max-width:100%;m
 html body.ld #view .oh.thubx>.ocg>.oc .ob{position:absolute;top:5px;right:8px}
 html body #view .oh.thubx .ocg>.oc:active{transform:scale(.97);filter:brightness(1.2)}
 </style>
+<style id="vfix-esc">
+html body.ld .gpane>.oh.emphub,html body.ld .oh.emphub{display:grid!important;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;gap:8px 10px!important;height:100%!important;min-height:0!important;align-items:stretch!important}
+html body.ld .emphub .coachcard{grid-column:1!important;grid-row:1!important;margin:0!important}
+html body.ld .emphub .cstatc{grid-column:1!important;grid-row:2!important;margin:0!important;align-self:stretch!important;align-content:space-evenly!important;height:auto!important}
+html body.ld .emphub .cstatc .csg b{font-size:30px!important}
+html body.ld .emphub .cstatc .csg small{font-size:12px!important}
+html body.ld .emphub .cstatc .f5{transform:scale(1)!important;height:30px!important;margin:0!important}
+html body.ld .emphub .ocg,html body.ld .emphub .ocg.og8{grid-column:2!important;grid-row:1/3!important;grid-template-columns:1fr 1fr!important;grid-template-rows:1fr 1fr!important;grid-auto-rows:minmax(0,1fr)!important;align-content:stretch!important;height:100%!important;gap:8px!important}
+html body.ld .emphub .ocg.og8 .oc{height:100%!important;align-self:stretch!important;justify-content:center!important;gap:4px!important;padding:10px 12px!important}
+html body.ld .emphub .ocg.og8 .oc .oi{width:34px!important;height:34px!important;font-size:26px!important}
+html body.ld .emphub .ocg.og8 .oc .oi img,html body.ld .emphub .ocg.og8 .oc .oi svg{width:34px!important;height:34px!important}
+html body.ld .emphub .ocg.og8 .oc h3{font-size:clamp(13px,1.9vw,16px)!important}
+html body.ld .emphub .ocg.og8 .oc p{font-size:12px!important}
+</style>
+<style id="vfix-map">
+/* mapa do continente sempre inteiro: a área do mapa nunca passa do painel; o mapa se ajusta dentro dela */
+html body.ld .world-map-panel:not(:has(.geo-side)) .world-art.world-art-continent{aspect-ratio:auto!important;flex:1 1 0!important;min-width:0!important;width:auto!important;max-width:100%!important;height:100%!important;overflow:hidden!important}
+html body.ld .world-map-panel:not(:has(.geo-side)) .world-art.world-art-continent .wa-in{width:min(100cqw,calc(100cqh*var(--r)))!important;max-width:100%}
+</style>
 </body></html>
 <style id="v21-ui">
 /* V21 · hub de transferências (deitado): recomendados maior, vendas compactas */
@@ -13306,5 +13515,239 @@ fit();
 ['resize','orientationchange','pageshow','focus','visibilitychange'].forEach(function(e){window.addEventListener(e,later)});
 document.addEventListener('visibilitychange',later);
 if(vv){vv.addEventListener('resize',later);vv.addEventListener('scroll',fit)}
+})();
+</script>
+<style id="v105-fit">
+/* ===== V105 · tudo cabe na tela, sem sobreposição, sem listras coloridas ===== */
+/* cores neutras: tira listras/brilhos verdes, amarelos e laranjas dos cartões */
+html body #view .fgrid>.fcd[data-fk]{--fc:#8fb4ee}
+html body #view .fgrid>.fcd::before{display:none}
+html body #view .fgrid>.fcd.act{box-shadow:inset 0 1px 0 rgba(255,255,255,.12)!important}
+html body #view .fhead .fcnt{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);color:#dbe8fb}
+.pfx-hero::before{display:none}
+.pfx-t,.tk-ask>div,.tk-funds>span{border-left:0!important}
+.pfx-t.up b{color:inherit}
+.tk-funds b{color:#fff}
+.tk-mood b{color:#fff}
+.tk-ok{background:rgba(255,255,255,.07);border-color:rgba(160,195,240,.3);color:#dbe8fb}
+.tk-warn{background:rgba(255,255,255,.05);border-color:rgba(160,195,240,.3);color:#ffd0c4}
+.ofx-val>div:first-child b{color:inherit}
+.ofx-val em.up,.ofx-val em.dn{background:rgba(255,255,255,.1);color:#dbe8fb}
+html body .pk::after{display:none}
+/* ---- Falar com o time (deitado): sem sobreposição e sem rolagem ---- */
+html body.ld .tk{gap:10px;padding:8px 10px;overflow:hidden}
+html body.ld .tk-l,html body.ld .tk-r{justify-content:flex-start;gap:6px;overflow:hidden}
+html body.ld .tk-l>*,html body.ld .tk-r>*{flex:none}
+html body.ld .tk-club{padding:5px 10px;gap:10px}
+html body.ld .tk-cr>*{width:38px!important;height:38px!important}
+html body.ld .tk-cr svg,html body.ld .tk-cr img,html body.ld .tk-cr .b{width:38px!important;height:38px!important}
+html body.ld .tk-club small{font-size:10px}
+html body.ld .tk-club b{font-size:19px}
+html body.ld .tk-pl{padding:5px 10px;gap:8px}
+html body.ld .tk-av{width:48px;height:48px}
+html body.ld .tk-av svg,html body.ld .tk-av img{border-radius:12px}
+html body.ld .tk-pi .f{font-size:11px}
+html body.ld .tk-pi .l{font-size:21px}
+html body.ld .tk-chips{margin-top:2px;gap:3px}
+html body.ld .tk-chips span{font-size:10.5px;padding:1px 7px}
+html body.ld .tk-g{min-width:58px;padding:3px 8px}
+html body.ld .tk-g b{font-size:24px}
+html body.ld .tk-g small{font-size:9px}
+html body.ld .tk-ask{gap:6px;flex:none}
+html body.ld .tk-ask>div{padding:4px 10px;gap:0}
+html body.ld .tk-ask b{font-size:19px}
+html body.ld .tk small{font-size:10px}
+html body.ld .tk-offer{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;gap:4px 8px;padding:6px 10px;justify-content:stretch;align-items:center}
+html body.ld .tk-offer>small{grid-column:1;grid-row:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html body.ld .tk-offer>.tk-mood{grid-column:2;grid-row:1;padding:2px 8px;font-size:11px;background:rgba(255,255,255,.08)}
+html body.ld .tk-offer>.tk-mood span{display:none}
+html body.ld .tk-offer>.tk-car{grid-column:1/-1;grid-row:2;grid-template-columns:38px 1fr 38px;gap:6px}
+html body.ld .tk-car button{height:34px;font-size:22px;border-radius:12px}
+html body.ld .tk-car b{font-size:26px}
+html body.ld .tk-funds{gap:6px}
+html body.ld .tk-funds>span{padding:3px 10px;gap:0}
+html body.ld .tk-funds small{white-space:nowrap}
+html body.ld .tk-funds b{font-size:15px}
+html body.ld .tk-ok,html body.ld .tk-warn,html body.ld .tk-note{font-size:11px;line-height:1.25;padding:4px 8px}
+html body.ld .tk-note{padding:0 2px}
+html body.ld .tk-bt{min-height:38px;font-size:14px}
+/* ---- Mercado (em pé): filtros ocupam a tela sem rolagem ---- */
+html body:not(.ld) #view .gpane:has(.fgrid){overflow:hidden!important;display:flex!important;flex-direction:column}
+html body:not(.ld) #view .gpane:has(.fgrid) .fhead{flex:none;margin:0 0 4px!important}
+html body:not(.ld) #view .gpane:has(.fgrid) .fhead b{font-size:18px!important}
+html body:not(.ld) #view .gpane:has(.fgrid) .fgrid{flex:1 1 0!important;min-height:0!important;grid-auto-rows:minmax(0,1fr)!important;gap:6px!important;padding:0!important;align-content:stretch!important}
+html body:not(.ld) #view .fgrid>.fcd{min-height:0!important;padding:5px 9px!important;gap:3px!important;border-radius:12px!important}
+html body:not(.ld) #view .fgrid>.fcd .fic{display:none}
+html body:not(.ld) #view .fgrid>.fcd>small{font-size:10px!important}
+html body:not(.ld) #view .fgrid>.fcd .fmapb{padding:2px 8px!important;font-size:10px!important}
+html body:not(.ld) #view .fgrid>.fcd.st .stp{grid-template-columns:30px minmax(0,1fr) 30px!important}
+html body:not(.ld) #view .fgrid>.fcd.st .stp button{width:30px;height:30px!important;font-size:17px!important}
+html body:not(.ld) #view .fgrid>.fcd.st .stp b{font-size:15px!important}
+html body:not(.ld) #view .fgrid>.fcd .fin{height:30px!important;font-size:14px!important}
+/* ---- Ficha do jogador (em pé): Estat. e Desenv. sem cortar ---- */
+html body:not(.ld) #view .fullficha .det.pcard{padding:8px 10px!important;gap:5px!important}
+html body:not(.ld) #view .fullficha .det.pcard>h3{margin:0!important;font-size:11px!important}
+html body:not(.ld) #view .fullficha .pcard .pav{width:52px!important;height:52px!important}
+html body:not(.ld) #view .fullficha .pcard .pcr,html body:not(.ld) #view .fullficha .pcard .pcr svg,html body:not(.ld) #view .fullficha .pcard .pcr img,html body:not(.ld) #view .fullficha .pcard .pcr .b{width:22px!important;height:22px!important;right:-6px!important;bottom:-6px!important}
+html body:not(.ld) #view .fullficha .pcard .phero .pid .l{font-size:20px!important}
+html body:not(.ld) #view .fullficha .pcard .phero>.g{padding:3px 10px 4px!important;min-width:48px}
+html body:not(.ld) #view .fullficha .pcard .phero>.g .ggr b{font-size:26px!important}
+html body:not(.ld) #view .fullficha .pcard .pchips{margin:9px 0 0!important;gap:4px!important}
+html body:not(.ld) #view .fullficha .pcard .pchips span{font-size:11px!important;padding:2px 8px!important}
+html body:not(.ld) #view .fullficha .pcard .pgrid{gap:5px!important;margin-top:5px!important}
+html body:not(.ld) #view .fullficha .pcard .pgrid>div{padding:3px 9px!important;min-height:0!important;gap:0!important}
+html body:not(.ld) #view .fullficha .pcard .pgrid small{font-size:9px!important}
+html body:not(.ld) #view .fullficha .pcard .pgrid b{font-size:14px!important}
+html body:not(.ld) #view .fullficha .pcard .pr .note{margin:3px 0!important;font-size:11px!important;line-height:1.25!important}
+html body:not(.ld) #view .fullficha .pcard .xpb{height:7px!important;margin:4px 0 0!important}
+html body:not(.ld) #view .fullficha .abars{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px 5px!important;margin-top:4px!important}
+html body:not(.ld) #view .fullficha .abar{padding:4px 7px 5px!important;row-gap:2px!important}
+html body:not(.ld) #view .fullficha .abar .an{font-size:9px!important;letter-spacing:0!important}
+html body:not(.ld) #view .fullficha .abar b{font-size:15px!important}
+html body:not(.ld) #view .fullficha .abar .at{height:5px!important}
+html body:not(.ld) #view .fullficha .pcard dl{display:grid!important;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto!important;gap:0 8px!important;margin:4px 0 0!important}
+html body:not(.ld) #view .fullficha .pcard dt,html body:not(.ld) #view .fullficha .pcard dd{margin:0!important;padding:4px 0!important;font-size:11.5px!important;line-height:1.15!important;border-bottom:1px solid rgba(255,255,255,.08)}
+html body:not(.ld) #view .fullficha .pcard dd{font-weight:800;text-align:right}
+/* ---- Vendas: cartões compactos ---- */
+.ofx{padding:7px 9px!important;gap:5px!important;border-radius:14px}
+.ofx-top{gap:8px}
+.ofx-cr>*,.ofx-cr svg,.ofx-cr img,.ofx-cr .b{width:28px!important;height:28px!important}
+.ofx-top b{font-size:14px}
+.ofx-top small{font-size:10px}
+.ofx-ger{font-size:17px;padding:2px 8px;border-radius:10px}
+.ofx-ger small{font-size:8px}
+.ofx-pl{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px}
+.ofx-pl b{font-size:clamp(16px,4.6vh,20px)!important}
+.ofx-pl .ofx-nm[data-act]{cursor:pointer;text-decoration:underline dotted rgba(255,255,255,.5);text-underline-offset:3px}
+.ofx-pl span{font-size:10.5px}
+.ofx-val{gap:10px;padding:4px 9px;align-items:center}
+.ofx-val small{font-size:9.5px}
+.ofx-val b,.ofx-val>div:first-child b{font-size:15px!important;white-space:nowrap}
+.ofx-val em{font-size:11px;padding:2px 8px}
+.ofx-b{min-height:30px!important;font-size:12px!important;border-radius:10px}
+.ofx-act{gap:5px}
+html body.ld .orows:has(.ofx){grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+html body.ld .ofx{padding:6px 8px!important;gap:4px!important}
+html body.ld #view .note:has(+.orows .ofx){display:none}
+.ofx{overflow:hidden}
+.ofx-act{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.ofx-b{min-width:0;padding:2px 3px!important;font-size:11px!important;white-space:nowrap;letter-spacing:0}
+.ofx-val{gap:6px!important;padding:4px 7px!important}
+.ofx-val small{white-space:nowrap}
+.ofx-val b,.ofx-val>div:first-child b{font-size:14px!important}
+.ofx-val em{font-size:10px!important;padding:2px 6px!important}
+html body.ld .tk-bt{white-space:nowrap;min-height:34px!important;font-size:13px!important;padding:2px 6px}
+html body.ld .ypm,html body.rotl .ypm{width:30px!important;height:30px!important;font-size:9px!important}
+@media (max-height:300px){html body.ld .tk-club b{font-size:17px}html body.ld .tk-ask b{font-size:17px}html body.ld .tk-car b{font-size:23px}}
+/* confirmação do zoom no mapa (início de carreira / interesse) */
+html body.ld .world-map-panel:has(>#geoConf){position:relative}
+html body.ld .world-map-panel>#geoConf{position:absolute!important;left:10px;right:10px;bottom:8px;z-index:6;grid-column:auto!important;grid-row:auto!important}
+html body:not(.ld) .world-map-panel>#geoConf{position:sticky!important;bottom:6px;z-index:6;margin-top:8px}
+html body .world-map-panel>#geoConf.on{display:flex}
+html body .world-map-panel>#geoConf .btn{min-height:38px;font-size:14px;box-shadow:0 8px 20px -6px rgba(0,0,0,.7)}
+html body .world-map-panel>#geoConf .btn.ghost{background:rgba(10,18,32,.92)}
+</style>
+<style id="v123">
+/* ===== v123: ajustes de layout ===== */
+/* ocupa a janela inteira (sem faixa sobrando) */
+html,body{background:#05080f}
+html body.fix,html body.fix2{height:auto!important;top:0!important;bottom:0!important;left:0!important;right:0!important}
+html body.ld{padding-top:4px!important;padding-bottom:4px!important}
+html body:not(.ld){padding-bottom:8px!important}
+
+/* ---------- Propostas (clubes / seleções): info à esquerda, ações à direita ---------- */
+html body.ld .xcols{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;align-items:start;max-height:calc(100dvh - 54px);overflow:hidden}
+html body.ld .xcl,html body.ld .xcr{min-width:0;max-height:calc(100dvh - 54px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+html body.ld .xcl::-webkit-scrollbar,html body.ld .xcr::-webkit-scrollbar{display:none}
+html body.ld .xcols .note{font-size:12px!important;line-height:1.3!important;padding:1px 2px!important;margin:0 0 6px!important}
+html body.ld .xcols .h2s{font-size:17px!important;margin:0 0 4px!important;padding-bottom:3px!important}
+html body.ld .xcols .objs{gap:6px!important;margin:0 0 6px!important}
+html body.ld .xcols .obj{padding:8px 10px!important}
+html body.ld .xcols .obj b{font-size:14px!important}
+html body.ld .xcols .obj small{font-size:11.5px!important;line-height:1.3!important}
+html body.ld .xcols .nstat{padding:8px 12px!important;margin:0 0 8px!important}
+html body.ld .xcols .nstat b{font-size:24px!important;line-height:1.05!important}
+html body.ld .xcols .nstat .note{font-size:12px!important;margin:2px 0 0!important}
+html body.ld .xcols .intg{gap:5px!important;margin:0 0 6px!important}
+html body.ld .xcols .intr{padding:5px 8px!important;min-height:0!important}
+html body.ld .xcols .intr .btn{min-height:28px!important;font-size:12px!important;padding:3px 9px!important}
+html body.ld .xcols>.xcr>.btn,html body.ld .xcr>.btn{min-height:38px!important;margin:6px 0 0!important;font-size:15px!important;line-height:1.1;padding:6px 10px!important;white-space:normal}
+html body.ld .xcols .bact .btn{min-height:30px!important;font-size:13px!important}
+/* em pé continua empilhado */
+html body:not(.ld) .xcols{display:block}
+html body.ld .sec:has(>.xcols){padding:2px 0 0!important;margin:0!important;border:0!important;background:none!important}
+
+/* ---------- Mapas: título no topo esquerdo, botão abaixo do nome, mapa ocupa o resto (deitado) ---------- */
+html body.ld .world-map-panel{display:grid!important;grid-template-columns:minmax(118px,150px) minmax(0,1fr);grid-template-rows:auto auto auto 1fr;column-gap:8px!important;row-gap:4px!important;padding:8px 8px!important;align-items:start!important;position:relative;overflow:hidden}
+html body.ld .world-map-panel:has(>.geo-side){grid-template-columns:minmax(112px,140px) minmax(0,1fr) minmax(196px,236px)}
+html body.ld .world-map-panel>.world-stage-head{grid-column:1;grid-row:1;display:flex!important;flex-direction:column;justify-content:flex-start!important;align-self:start!important;padding:0!important;position:relative;height:auto!important;min-height:0!important;width:auto!important}
+html body.ld .world-map-panel>.world-stage-head h2{order:1;font-size:21px!important;line-height:1.02!important;margin:0 0 4px!important}
+html body.ld .world-map-panel>.world-stage-head .cont-btn{order:2;position:static!important;align-self:flex-start;margin:0 0 5px!important;padding:5px 11px!important;font-size:11px!important;white-space:nowrap}
+html body.ld .world-map-panel>.world-stage-head p{order:3;font-size:11.5px!important;line-height:1.25!important;margin:0!important}
+html body.ld .world-map-panel>.world-mnd{grid-column:1;grid-row:2;margin:0!important}
+html body.ld .world-map-panel>.selbtns{grid-column:1!important;grid-row:2;position:static!important;margin:0!important;padding:0!important;align-self:start}
+html body.ld .world-map-panel>.world-mnd+.selbtns{grid-row:3}
+html body.ld .world-map-panel>.selbtns .btn{white-space:nowrap;font-size:13px!important;min-height:34px!important;padding:4px 12px!important;width:auto!important;border-radius:999px}
+html body.ld .world-map-panel>.world-art{grid-column:2;grid-row:1/-1;width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;margin:0!important;align-self:stretch!important}
+html body.ld .world-map-panel>.world-art .wa-in{margin:auto}
+html body.ld .world-map-panel>.geo-side{grid-column:3;grid-row:1/-1;align-self:stretch;min-height:0}
+html body.ld .world-map-panel>.world-stage-foot{display:none!important}
+/* lista de países do painel: 2 colunas compactas, tudo visível sem rolar */
+html body.ld .world-map-panel:has(>.geo-side){grid-template-columns:minmax(112px,138px) minmax(0,1fr) minmax(226px,262px)}
+html body.ld .geo-side{display:flex!important;flex-direction:column;min-height:0;overflow:hidden;padding:0!important}
+html body.ld .geo-side h3{font-size:10px!important;margin:0 0 3px!important;letter-spacing:.14em}
+html body.ld .geo-side .geo-pl{display:grid!important;grid-template-columns:1fr 1fr;gap:4px!important;overflow-y:auto;max-height:none!important;flex:1;min-height:0;align-content:start;grid-auto-rows:30px!important;scrollbar-width:none}
+html body.ld .geo-side .gcb{display:flex!important;align-items:center;gap:5px;min-height:30px!important;height:auto!important;padding:3px 6px!important;border-radius:9px!important;text-align:left;min-width:0}
+html body.ld .geo-side .gcb b{font-size:16px!important;flex:none;line-height:1}
+html body.ld .geo-side .gcb b *{width:20px!important;height:auto!important;font-size:16px!important}
+html body.ld .geo-side .gcb span{font-size:12px!important;line-height:1.1!important;white-space:normal;overflow:hidden;min-width:0}
+html body.ld .world-map-panel>.world-stage-head{width:100%!important;max-width:none!important}
+html body.ld .world-map-panel>.world-stage-head h2{max-width:none!important;width:auto!important;white-space:normal!important;word-break:normal!important;overflow-wrap:normal}
+html body.ld .world-map-panel>.world-stage-head h2{padding:0!important}
+html body.ld .world-map-panel>.world-stage-head p{padding:0!important;max-width:none!important}
+html body.ld .world-map-panel>.selbtns .btn{width:100%!important;justify-content:center;gap:6px!important;font-size:14px!important}
+html body.ld .world-map-panel>.selbtns .btn img,html body.ld .world-map-panel>.selbtns .btn svg{height:24px!important;width:auto!important}
+html body.ld .world-map-panel>.selbtns .btn{min-width:0!important;max-width:100%!important;box-sizing:border-box}
+html body.ld .world-map-panel>.world-art{box-sizing:border-box;padding:0 10px 0 14px!important}
+html body.ld .world-map-panel>.selbtns .btn{font-size:13px!important;padding:4px 8px!important}
+html body.ld .world-map-panel>.selbtns .btn img,html body.ld .world-map-panel>.selbtns .btn svg{height:22px!important}
+
+/* ---------- Configurações (deitado): cartões compactos, textos sem espremer ---------- */
+html body.ld .cfg2{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important;align-items:start!important;align-content:start}
+html body.ld .cfg2 .oc.cfb{display:grid!important;grid-template-columns:26px minmax(0,1fr)!important;column-gap:7px!important;row-gap:2px!important;align-items:center!important;grid-column:auto!important;height:auto!important;min-height:0!important;max-height:none!important;padding:6px 8px!important;overflow:visible!important}
+html body.ld .cfg2 .cfb>.oi{width:24px!important;height:24px!important;font-size:20px!important;margin:0!important;display:flex;align-items:center;justify-content:center}
+html body.ld .cfg2 .cfb>.oi img,html body.ld .cfg2 .cfb>.oi svg{width:24px!important;height:24px!important;object-fit:contain}
+html body.ld .cfg2 .cfb>h3{font-size:16px!important;line-height:1!important;margin:0!important;padding:0!important}
+html body.ld .cfg2 .cfb>.orows{grid-column:1/-1!important;padding:0 8px!important;margin:0!important;border-radius:10px!important}
+html body.ld .cfg2 .orow{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;column-gap:8px;row-gap:4px;align-items:center;padding:5px 0!important;min-height:0!important;height:auto!important}
+html body.ld .cfg2 .orow:has(.seg){grid-template-columns:minmax(0,1fr)!important}
+html body.ld .cfg2 .orow>div{min-width:0}
+html body.ld .cfg2 .orow b{font-size:13px!important;line-height:1.1!important;white-space:normal!important;display:block!important}
+html body.ld .cfg2 .orow span{font-size:10.5px!important;line-height:1.2!important;display:block!important;white-space:normal!important;overflow:visible!important}
+html body.ld .cfg2 .orow .seg{position:static!important;min-width:0!important;width:100%!important;margin:0!important;display:flex!important}
+html body.ld .cfg2 .orow .seg button{flex:1 1 0;min-height:28px!important;padding:2px 6px!important;font-size:12px!important;white-space:nowrap}
+html body.ld .cfg2 .orow .btn{min-height:28px!important;padding:3px 10px!important;font-size:12px!important;width:auto!important}
+html body.ld .cfg2 .orow .seg button{font-size:11px!important;letter-spacing:0!important;padding:2px 3px!important;min-width:0!important}
+html body.ld .cfg2 .cfb>.orows{box-sizing:border-box;width:auto!important;min-width:0!important}
+html body.ld .cfg2 .oc.cfb:has(.orow:nth-child(3)){grid-column:span 2!important}
+html body.ld .cfg2 .oc.cfb:has(.orow:nth-child(3))>.orows{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 10px}
+html body.ld .cfg2 .oc.cfb:has(.orow:nth-child(3)) .orow{grid-template-columns:minmax(0,1fr)!important;justify-items:start;border-top:0!important}
+html body.ld #view .cfg2 .oc.cfb:has(.orow:nth-child(3))>.orows{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:0 10px!important}
+html body.ld #view .cfg2 .orow .seg button{white-space:normal!important;line-height:1!important}
+
+</style>
+<script id="v123js">(function(){
+  /* re-renderiza o mapa de interesse ao girar a tela (deitado = estilo clubes, em pé = estilo seleção) */
+  var last=null;
+  function chk(){
+    var ld=document.body.classList.contains('ld');
+    if(last===null){last=ld;return}
+    if(ld===last)return;
+    last=ld;
+    try{if(typeof ui!=='undefined'&&ui&&((ui.gm&&ui.gm.mode==='int'&&ui.imap)||((ui.tm==='world'||ui.tm==='cls')&&ui.worldStep==='country'))&&typeof render==='function')render()}catch(e){}
+  }
+  try{new MutationObserver(chk).observe(document.body,{attributes:true,attributeFilter:['class']})}catch(e){}
+  window.addEventListener('resize',function(){setTimeout(chk,30)});
+  chk();
 })();
 </script>
